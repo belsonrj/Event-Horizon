@@ -1,7 +1,17 @@
+<!DOCTYPE html>
+<html>
 <h1>Welcome to Event-Horizon!</h1>
-<h2>Your handy event index</h2>
+<h2>Your handy event indexer</h2>
+    <p>Login</p>
   <p>
-    <%= link_to "Log In", login_path %>
+  <% form_for :sessions, url: '/login' do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+
+    <%= f.label :password %>
+    <%= f.password_field :password %>
+  <% end %>
+    <p>OR</p>
     <%= link_to "Sign Up", signup_path %>
   </p>
-  
+  </html>

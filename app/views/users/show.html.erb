@@ -1,5 +1,21 @@
-<h1>Welcome <%= @user.username%>
+<!DOCTYPE html>
+<html>
+  <body>
+    
+      <h1>Welcome <%= @user.username%>
+      
+      <h2>To view your collection of Performers or Venues click on the corresponding button:</h2>
+          <p><form method="POST" action='/performers/<%= @user.id %>/index'>
+             <input type="submit" value="Performer List">
+          </form></p>
+          <p><form method="POST" action='/venues/index'>
+             <input type="submit" value="Venue List">
+          </form></p>
+          <p><a href='/logout'>Log Out</a3></p>
+      <%= link_to "Artists", artists_path %>
+      <%= link_to "Venues", venues_path %>
+  </body>
+</html>
 
-<p id="notice"><%= notice %></p>
 
 
