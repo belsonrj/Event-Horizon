@@ -1,6 +1,22 @@
-<h1>Editing Venue</h1>
+<h1>Edit Venue:</h1>
 
-<%= render 'form', venue: @venue %>
+<br />
 
-<%= link_to 'Show', @venue %> |
-<%= link_to 'Back', venues_path %>
+<%= form_for(@venue) do |f| %>
+  <%= f.label "Name:" %> <br />
+  <%= f.text_field :name %> <br />
+  <%= f.label "Locale:" %> <br />
+  <%= f.text_field :locale %> <br />
+  <%= f.label "Venue Type:" %> <br />
+  <%= f.text_field :venue_type %> <br />
+
+  <br />
+
+  <%= f.submit %>
+<% end %>
+
+
+
+      <% if logged_in? %>
+        <h1>You are Logged In, <%= current_user.username %></h1>
+      <%end%>

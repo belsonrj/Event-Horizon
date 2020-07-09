@@ -1,4 +1,12 @@
 <p id="notice"><%= notice %></p>
+<h1><%= @venue.name %></h1>
 
+<h2>Locale:</h2>
+<%= @venue.locale %>
+<h2>Venue Type:</h2>
+<%= @venue.venue_type %>
+<br>
+<br>
 <%= link_to 'Edit', edit_venue_path(@venue) %> |
-<%= link_to 'Back', venues_path %>
+<%= link_to 'Destroy', @venuet, method: :destroy, data: { confirm: 'Are you sure?' } %></td> |
+<%= link_to 'Back', user_path(@user) %>

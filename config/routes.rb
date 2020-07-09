@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   delete '/logout'  => 'sessions#destroy'
   post	'/users/1'	=>	'users_path(user)'
   post '/artists' => 'artist#create'
-  get '/sessions/:id' => 'sessions#destroy'
+  get '/destroy' => 'sessions#destroy'
   
 
 

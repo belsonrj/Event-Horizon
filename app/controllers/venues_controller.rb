@@ -10,31 +10,30 @@ class VenuesController < ApplicationController
   # GET /venues/1
   # GET /venues/1.json
   def show
+    @user = current_user
   end
 
   # GET /venues/new
   def new
+    @user = current_user
     @venue = Venue.new
   end
 
   # GET /venues/1/edit
   def edit
+    @user = current_user
+    set_venue
   end
 
   # POST /venues
   # POST /venues.json
   def create
-    @venue = Venue.new(venue_params)
-
-    respond_to do |format|
-      if @venue.save
-        format.html { redirect_to @venue, notice: 'Venue was successfully created.' }
-        format.json { render :show, status: :created, location: @venue }
-      else
-        format.html { render :new }
-        format.json { render json: @venue.errors, status: :unprocessable_entity }
-      end
-    end
+    @user = current_user
+    @venue = Venue.create(params.require(:venue).permit(:name, :locale, :venue_type))
+    
+    @venue.save
+    @user.venues << @venue
+    redirect_to user_path(@user)
   end
 
   # PATCH/PUT /venues/1

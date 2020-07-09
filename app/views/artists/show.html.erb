@@ -9,6 +9,14 @@
 <%= @artist.met %>
 <br>
 <br>
+<h2>Venues You've Seen This Artist At:</h2>
+    <ul>
+      <% @artist.venues.each do |venue| %>
+        <li><%= link_to venue.name, user_venue_path(@user, venue) %></li>
+        <td><%= link_to 'Destroy', @venue, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <% end %>
+    </ul>   
+
 <%= link_to 'Edit', edit_artist_path(@artist) %> |
-<%= link_to 'Destroy', artist, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+<%= link_to 'Destroy', @artist, method: :destroy, data: { confirm: 'Are you sure?' } %></td> |
 <%= link_to 'Back', user_path(@user) %>

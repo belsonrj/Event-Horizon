@@ -4,13 +4,13 @@
 
 <%= form_for @venue  do |f| %>
   <%= f.label "Name" %>
-  <%= f.text_field :name %>
+  <%= f.text_field :name %> <br>
   <%= f.label "Locale" %>
-  <%= f.text_field :locale %>
+  <%= f.text_field :locale %> <br>
   <%= f.label "Venue Type" %>
-  <%= f.text_field :venue_type %>
+  <%= f.text_field :venue_type %><br>
 
-  <br />
+  <br>
 
   <%= f.submit %>
 <% end %>

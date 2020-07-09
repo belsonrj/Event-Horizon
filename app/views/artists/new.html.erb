@@ -11,6 +11,26 @@
   <%= f.text_field :times_seen %> <br />
   <%= f.label "Met?" %> <br />
   <%= f.check_box :met %> <br />
+  <br>
+  <h3>Venue attended:</h3>
+  <% @user.venues.each do |ven| %>
+  <input type="checkbox" name="artist[venue_ids][]" id="<%= ven.id %>" value="<%= ven.id %>"><%= ven.name %><br>
+<% end %>
+
+  <h3>Create New Venue:</h3>
+  <label>Venue Name: </label>
+  <br>
+  <input type="text" name="venue[name]" id="name"></input>
+  <br>
+  <label>Venue Locale: </label>
+  <br>
+  <input type="text" name="venue[locale]" id="locale"></input>
+  <br>
+  <label>Venue Type: </label>
+  <br>
+  <input type="text" name="venue[venue_type]" id="venue_type"></input>
+ 
+  <input type="submit" value="Create New Venue"> <br>
 
   <br />
 

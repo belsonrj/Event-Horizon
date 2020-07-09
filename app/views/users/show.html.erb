@@ -3,40 +3,28 @@
   <body>
     
       <h1>Welcome, <%= @user.username.upcase%>! </h1>
-
-
-  <p>
-  <h2><%= @user.username.upcase %>'s saved Artists:</h2>
-  <%= link_to "Add Artist", :controller => 'artists', :action => 'new' %>
-  <table>
-    <thead>
-      <tr>
-        <th colspan="3"></th>
-      </tr>
-    </thead>
-  
-    <tbody>
-      <% @user.artists.each do |artist| %>
-        <tr>
-          <li><%= link_to artist.name, user_artist_path(@user, artist) %></li>
-          <td><%= link_to 'Edit', edit_artist_path(artist) %></td>
-          <td><%= link_to 'Destroy', @artist, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        </tr>
+   
+    <h2><%= @user.username.upcase %>'s saved Artists:</h2>
+       <%= link_to "Add Artist", :controller => 'artists', :action => 'new' %>
+    <ul>
+       <% @user.artists.each do |artist| %>
+        <li><%= link_to artist.name, user_artist_path(@user, artist) %></li>
+        <td><%= link_to 'Edit', edit_artist_path(artist) %></td>
+        <td><%= link_to 'Destroy', @artist, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       <% end %>
-    </tbody>
-  </table>
-  </p>
-
-  <p>
-  <h2><%= @user.username.upcase %>'s saved Venues:</h2>
-   <%= link_to "Add Venue", :controller => 'venues', :action => 'new' %>
-  <ul>
-    <% @user.venues.each do |venue| %>
-      <li><%= link_to venue.name, user_venue_path(@user, venue) %></li>
-    <% end %>
-  </ul>        
- 
-  </p>
+    </ul>        
+   
+  
+    <h2><%= @user.username.upcase %>'s saved Venues:</h2>
+     <%= link_to "Add Venue", :controller => 'venues', :action => 'new' %>
+    <ul>
+      <% @user.venues.each do |venue| %>
+        <li><%= link_to venue.name, user_venue_path(@user, venue) %></li>
+        <td><%= link_to 'Edit', edit_venue_path(venue) %></td>
+        <td><%= link_to 'Destroy', @venue, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <% end %>
+    </ul>       
+  
 
   <%= link_to "Logout", :controller => 'sessions', :action => 'destroy' %>
 
