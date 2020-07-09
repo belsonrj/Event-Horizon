@@ -1,6 +1,22 @@
-<h1>Editing Artist</h1>
+<h1>Edit Artist:</h1>
 
-<%= render 'form', artist: @artist %>
+<br />
 
-<%= link_to 'Show', @artist %> |
-<%= link_to 'Back', artists_path %>
+<%= form_for(@artist) do |f| %>
+  <%= f.label "Name" %> <br />
+  <%= f.text_field :name %> <br />
+  <%= f.label "Genre" %> <br />
+  <%= f.text_field :genre %> <br />
+  <%= f.label "Times Seen" %> <br />
+  <%= f.text_field :times_seen %> <br />
+
+  <br />
+
+  <%= f.submit %>
+<% end %>
+
+
+
+      <% if logged_in? %>
+        <h1>You are Logged In, <%= current_user.username %></h1>
+      <%end%>

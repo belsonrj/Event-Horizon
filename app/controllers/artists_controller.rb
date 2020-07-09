@@ -1,53 +1,61 @@
 class ArtistsController < ApplicationController
   before_action :set_artist, only: [:show, :edit, :update, :destroy]
+  skip_forgery_protection
 
   # GET /artists
   # GET /artists.json
   def index
-    @artists = Artist.all
+    @user = current_user
+    @artist = Artist.find(params[:id])
   end
 
   # GET /artists/1
   # GET /artists/1.json
   def show
+    @user = current_user
+    @artist = Artist.find(params[:id])
   end
 
   # GET /artists/new
   def new
+    @user = current_user
     @artist = Artist.new
   end
 
   # GET /artists/1/edit
   def edit
+    @user = current_user
+    @artist = Artist.find(params[:id])
   end
 
   # POST /artists
   # POST /artists.json
   def create
-    @artist = Artist.new(artist_params)
-
-    respond_to do |format|
-      if @artist.save
-        format.html { redirect_to @artist, notice: 'Artist was successfully created.' }
-        format.json { render :show, status: :created, location: @artist }
-      else
-        format.html { render :new }
-        format.json { render json: @artist.errors, status: :unprocessable_entity }
-      end
-    end
+    @user = current_user
+    @artist = Artist.create(params.require(:artist).permit(:name, :genre, :times_seen, :met))
+    
+    @artist.save
+    @user.artists << @artist
+    redirect_to user_path(@user)
+    #else
+      #format.html { render :new }
+      #format.json { render json: @user.errors, status: :unprocessable_entity }
+    #  render :new
+    #end
   end
 
   # PATCH/PUT /artists/1
   # PATCH/PUT /artists/1.json
   def update
-    respond_to do |format|
-      if @artist.update(artist_params)
-        format.html { redirect_to @artist, notice: 'Artist was successfully updated.' }
-        format.json { render :show, status: :ok, location: @artist }
-      else
-        format.html { render :edit }
-        format.json { render json: @artist.errors, status: :unprocessable_entity }
-      end
+    @user = current_user
+    @artist = Artist.find(params[:id])
+
+    @artist.update(artist_params)
+
+    if @artist.save
+      redirect_to user_path(@user)
+    else
+      render :edit
     end
   end
 
@@ -69,6 +77,6 @@ class ArtistsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def artist_params
-      params.fetch(:artist, {})
+      params.require(:artist).permit(:name, :genre, :times_seen, :met)
     end
 end

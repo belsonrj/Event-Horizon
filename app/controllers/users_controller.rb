@@ -1,11 +1,12 @@
 class UsersController < ApplicationController
-  before_action :require_login
+  #before_action :require_login
   before_action :set_user, only: [:show, :edit, :update, :destroy]
+  skip_forgery_protection
 
   # GET /users/1
   # GET /users/1.json
   def show
-    @user = User.find(params[:user_id])
+    @user = User.find(params[:id])
   end
 
   # GET /users/new
@@ -36,7 +37,8 @@ class UsersController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user
-      @user = User.find(params[:id])
+      #@user = User.find(params[:id])
+      @user = User.find_by id: session[:user_id]
     end
 
     # Only allow a list of trusted parameters through.

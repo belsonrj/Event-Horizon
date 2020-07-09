@@ -1,17 +1,27 @@
 <!DOCTYPE html>
 <html>
+
 <h1>Welcome to Event-Horizon!</h1>
 <h2>Your handy event indexer</h2>
-    <p>Login</p>
-  <p>
-  <% form_for :sessions, url: '/login' do |f| %>
-    <%= f.label :name %>
-    <%= f.text_field :name %>
+<body>
 
-    <%= f.label :password %>
-    <%= f.password_field :password %>
-  <% end %>
-    <p>OR</p>
-    <%= link_to "Sign Up", signup_path %>
-  </p>
+
+  <h1>Login</h1>
+     <%= form_tag '/login' do %>
+     <%= label_tag :username%>
+     <%= text_field_tag :username %> <br>
+     <br>
+     <%= label_tag :password%>
+     <%= password_field_tag :password%> <br>
+     <br>
+     <%= submit_tag "Login"%>
+  <%end%>
+
+<p>New user? <%= link_to "Sign up now!", signup_path %></p>
+
+    
+      <% if logged_in? %>
+        <h1>You are Logged In, <%= current_user.username %></h1>
+      <%end%>
+  </body>
   </html>

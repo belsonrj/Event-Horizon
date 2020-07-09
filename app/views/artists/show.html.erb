@@ -1,4 +1,14 @@
 <p id="notice"><%= notice %></p>
+<h1><%= @artist.name %></h1>
 
+<h2>Genre:</h2>
+<%= @artist.genre %>
+<h2>Times Seen:</h2>
+<%= @artist.times_seen %>
+<h2>Met?</h2>
+<%= @artist.met %>
+<br>
+<br>
 <%= link_to 'Edit', edit_artist_path(@artist) %> |
-<%= link_to 'Back', artists_path %>
+<%= link_to 'Destroy', artist, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+<%= link_to 'Back', user_path(@user) %>

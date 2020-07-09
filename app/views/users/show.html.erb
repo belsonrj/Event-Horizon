@@ -2,18 +2,48 @@
 <html>
   <body>
     
-      <h1>Welcome <%= @user.username%>
-      
-      <h2>To view your collection of Performers or Venues click on the corresponding button:</h2>
-          <p><form method="POST" action='/performers/<%= @user.id %>/index'>
-             <input type="submit" value="Performer List">
-          </form></p>
-          <p><form method="POST" action='/venues/index'>
-             <input type="submit" value="Venue List">
-          </form></p>
-          <p><a href='/logout'>Log Out</a3></p>
-      <%= link_to "Artists", artists_path %>
-      <%= link_to "Venues", venues_path %>
+      <h1>Welcome, <%= @user.username.upcase%>! </h1>
+
+
+  <p>
+  <h2><%= @user.username.upcase %>'s saved Artists:</h2>
+  <%= link_to "Add Artist", :controller => 'artists', :action => 'new' %>
+  <table>
+    <thead>
+      <tr>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+  
+    <tbody>
+      <% @user.artists.each do |artist| %>
+        <tr>
+          <li><%= link_to artist.name, user_artist_path(@user, artist) %></li>
+          <td><%= link_to 'Edit', edit_artist_path(artist) %></td>
+          <td><%= link_to 'Destroy', @artist, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  </p>
+
+  <p>
+  <h2><%= @user.username.upcase %>'s saved Venues:</h2>
+   <%= link_to "Add Venue", :controller => 'venues', :action => 'new' %>
+  <ul>
+    <% @user.venues.each do |venue| %>
+      <li><%= link_to venue.name, user_venue_path(@user, venue) %></li>
+    <% end %>
+  </ul>        
+ 
+  </p>
+
+  <%= link_to "Logout", :controller => 'sessions', :action => 'destroy' %>
+
+
+      <% if logged_in? %>
+        <h1>You are Logged In, <%= current_user.username %></h1>
+      <%end%>
   </body>
 </html>
 

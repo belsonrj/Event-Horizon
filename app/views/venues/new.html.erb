@@ -1,5 +1,22 @@
 <h1>New Venue</h1>
 
-<%= render 'form', venue: @venue %>
+<br />
 
-<%= link_to 'Back', venues_path %>
+<%= form_for @venue  do |f| %>
+  <%= f.label "Name" %>
+  <%= f.text_field :name %>
+  <%= f.label "Locale" %>
+  <%= f.text_field :locale %>
+  <%= f.label "Venue Type" %>
+  <%= f.text_field :venue_type %>
+
+  <br />
+
+  <%= f.submit %>
+<% end %>
+
+
+
+      <% if logged_in? %>
+        <h1>You are Logged In, <%= current_user.username %></h1>
+      <%end%>
