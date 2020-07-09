@@ -62,11 +62,17 @@ class ArtistsController < ApplicationController
   # DELETE /artists/1
   # DELETE /artists/1.json
   def destroy
+    @user = current_user
+    @artist = Artist.find(params[:id])
     @artist.destroy
-    respond_to do |format|
-      format.html { redirect_to artists_url, notice: 'Artist was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    redirect_to user_path(@user)
+      # do your things
+    #@artist = Artist.find(params[:id])
+    #@artist.destroy
+    #respond_to do |format|
+    #  format.html { redirect_to artists_url, notice: 'Artist was successfully destroyed.' }
+    #  format.json { head :no_content }
+    #end
   end
 
   private

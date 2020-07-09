@@ -9,8 +9,7 @@
     <ul>
        <% @user.artists.each do |artist| %>
         <li><%= link_to artist.name, user_artist_path(@user, artist) %></li>
-        <td><%= link_to 'Edit', edit_artist_path(artist) %></td>
-        <td><%= link_to 'Destroy', @artist, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
       <% end %>
     </ul>        
    
@@ -20,8 +19,7 @@
     <ul>
       <% @user.venues.each do |venue| %>
         <li><%= link_to venue.name, user_venue_path(@user, venue) %></li>
-        <td><%= link_to 'Edit', edit_venue_path(venue) %></td>
-        <td><%= link_to 'Destroy', @venue, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
       <% end %>
     </ul>       
   

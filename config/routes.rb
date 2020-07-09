@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :sessions, only: [:new, :create, :destroy]
   resources :users
   resources :users do
-    resources :artists, only: [:index, :show]
+    resources :artists, only: [:index, :show, :destroy]
     resources :venues, only: [:index, :show]
   end
 
@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   post	'/users/1'	=>	'users_path(user)'
   post '/artists' => 'artist#create'
   get '/destroy' => 'sessions#destroy'
+  post 'artist_destroy' => 'artists#destroy'
   
 
 
