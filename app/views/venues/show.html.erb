@@ -5,8 +5,18 @@
 <%= @venue.locale %>
 <h2>Venue Type:</h2>
 <%= @venue.venue_type %>
+<h2>Venue Comments:</h2>
+<p><%= @venue.content %></p>
 <br>
 <br>
 <%= link_to 'Edit', edit_venue_path(@venue) %> |
-<%= link_to 'Destroy', @venuet, method: :destroy, data: { confirm: 'Are you sure?' } %></td> |
+<%= link_to "Delete", venue_destroy_path(id: @venue.id) %> |
 <%= link_to 'Back', user_path(@user) %>
+
+<h2>Artists You've Seen At This Venue:</h2>
+    <ul>
+      <% @venue.artists.each do |artist| %>
+        <li><%= link_to artist.name, user_artist_path(@user, artist) %></li>
+        <td><%= link_to "Delete", artist_destroy_path(id: @artist.id) %></td>
+      <% end %>
+    </ul>   

@@ -1,5 +1,6 @@
 class ArtistsController < ApplicationController
   before_action :set_artist, only: [:show, :edit, :update, :destroy]
+  #before_action :current_user 
   skip_forgery_protection
 
   # GET /artists
@@ -32,16 +33,25 @@ class ArtistsController < ApplicationController
   # POST /artists.json
   def create
     @user = current_user
-    @artist = Artist.create(params.require(:artist).permit(:name, :genre, :times_seen, :met))
-    
-    @artist.save
-    @user.artists << @artist
-    redirect_to user_path(@user)
+    @artist = Artist.create(params.require(:artist).permit(:name, :genre, :times_seen, :met, venue_ids:[]))
+   # @new_venue = Venue.create(name: params["venue"]["name"], locale: params["venue"]["locale"], venue_type: params["venue"]["venue_type"])
+    #if !params["venue"]["name"].empty?
+     # @artist.venues << @new_venue
+      #@user.venues << @new_venue
+
+      #@user.artists << @artist
+      #@artist.save
     #else
-      #format.html { render :new }
-      #format.json { render json: @user.errors, status: :unprocessable_entity }
-    #  render :new
+    #@user.artists << @artist 
+    #@artist.save
     #end
+    #@user = current_user
+    #@artist = Artist.create(artist_params)
+    
+    if @artist.save
+       @user.artists << @artist
+       redirect_to user_path(@user)
+    end
   end
 
   # PATCH/PUT /artists/1
@@ -51,7 +61,7 @@ class ArtistsController < ApplicationController
     @artist = Artist.find(params[:id])
 
     @artist.update(artist_params)
-
+   
     if @artist.save
       redirect_to user_path(@user)
     else
@@ -66,13 +76,6 @@ class ArtistsController < ApplicationController
     @artist = Artist.find(params[:id])
     @artist.destroy
     redirect_to user_path(@user)
-      # do your things
-    #@artist = Artist.find(params[:id])
-    #@artist.destroy
-    #respond_to do |format|
-    #  format.html { redirect_to artists_url, notice: 'Artist was successfully destroyed.' }
-    #  format.json { head :no_content }
-    #end
   end
 
   private
@@ -83,6 +86,6 @@ class ArtistsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def artist_params
-      params.require(:artist).permit(:name, :genre, :times_seen, :met)
+      params.require(:artist).permit(:name, :genre, :times_seen, :met, venue_ids:[])
     end
 end

@@ -1,9 +1,8 @@
 class CreateArtistVenues < ActiveRecord::Migration[6.0]
     def change
       create_table :artist_venues do |t|
-        t.integer :artist_id
-        t.integer :venue_id
-        t.integer :user_id
+        t.belongs_to :artist, index: true, foreign_key: true
+        t.belongs_to :venue, index: true, foreign_key: true
 
         t.timestamps
       end

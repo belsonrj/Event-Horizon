@@ -11,6 +11,7 @@ class VenuesController < ApplicationController
   # GET /venues/1.json
   def show
     @user = current_user
+    @venue = Venue.find(params[:id])
   end
 
   # GET /venues/new
@@ -29,7 +30,7 @@ class VenuesController < ApplicationController
   # POST /venues.json
   def create
     @user = current_user
-    @venue = Venue.create(params.require(:venue).permit(:name, :locale, :venue_type))
+    @venue = Venue.create(params.require(:venue).permit(:name, :locale, :venue_type, :content))
     
     @venue.save
     @user.venues << @venue

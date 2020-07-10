@@ -3,12 +3,14 @@
 <br />
 
 <%= form_for @venue  do |f| %>
-  <%= f.label "Name" %>
+  <%= f.label "Name" %> <br>
   <%= f.text_field :name %> <br>
-  <%= f.label "Locale" %>
+  <%= f.label "Locale" %> <br>
   <%= f.text_field :locale %> <br>
-  <%= f.label "Venue Type" %>
+  <%= f.label "Venue Type" %> <br>
   <%= f.text_field :venue_type %><br>
+  <%= f.label "Venue Comments" %> <br>
+  <%= f.text_area :content %><br>
 
   <br>
 

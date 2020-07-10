@@ -15,9 +15,10 @@ ActiveRecord::Schema.define(version: 2020_07_05_225910) do
   create_table "artist_venues", force: :cascade do |t|
     t.integer "artist_id"
     t.integer "venue_id"
-    t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["artist_id"], name: "index_artist_venues_on_artist_id"
+    t.index ["venue_id"], name: "index_artist_venues_on_venue_id"
   end
 
   create_table "artists", force: :cascade do |t|
@@ -42,12 +43,15 @@ ActiveRecord::Schema.define(version: 2020_07_05_225910) do
     t.string "name"
     t.string "locale"
     t.string "venue_type"
+    t.string "content"
     t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_venues_on_user_id"
   end
 
+  add_foreign_key "artist_venues", "artists"
+  add_foreign_key "artist_venues", "venues"
   add_foreign_key "artists", "users"
   add_foreign_key "venues", "users"
 end
