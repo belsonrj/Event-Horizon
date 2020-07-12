@@ -16,11 +16,13 @@
 
        <%= button_to "Add Artist", :controller => 'artists', :action => 'new' %>
     <ul>
-       <% @user.artists.each do |artist| %>
+       <% @user.artists.sort_by(&:name).each do |artist| %>
         <li><%= link_to artist.name, user_artist_path(@user, artist) %></li>
 
       <% end %>
-    </ul>     </div>
+    </ul>     
+    </div>
+
     <div style="margin-left: 620px;">     
 
     <%= button_to "Top Rated Venues", artist_action_path(@user), method: :get %>
@@ -30,7 +32,7 @@
 
      <%= button_to "Add Venue", :controller => 'venues', :action => 'new' %>
     <ul>
-      <% @user.venues.each do |venue| %>
+      <% @user.venues.sort_by(&:name).each do |venue| %>
         <li><%= link_to venue.name, user_venue_path(@user, venue) %></li>
 
       <% end %>

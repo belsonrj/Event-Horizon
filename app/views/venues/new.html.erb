@@ -2,7 +2,7 @@
 
 <br />
 
-<%= form_for :venue, url: venues_path do |f| %>
+<%= form_for(@venue) do |f| %>
   <%= f.label "Name" %> <br>
   <%= f.text_field :name %> <br>
   <%= f.label "Locale" %> <br>
@@ -14,11 +14,17 @@
 
   <br>
 
+  <h2><%= f.label "Artist?" %></h2>
+  <% @user.artists.all.each do |a| %>
+    <p>
+      <label for="artist_id_<%= a.id %>"><%= a.name %></label>
+      <input type="checkbox" name="venue[artist_ids][]" value="<%= a.id %>">
+    </p>
+  <% end %>
+
+  <p>
+  <%= f.label "Create a New Artist" %> <br>
+  <input type="text" id="name" name="artist[name]" />
+  </p>
   <%= f.submit %>
-<% end %>
-
-
-
-      <% if logged_in? %>
-        <h1>You are Logged In, <%= current_user.username %></h1>
-      <%end%>
+<% end %> 

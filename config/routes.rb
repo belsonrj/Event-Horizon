@@ -15,10 +15,12 @@ Rails.application.routes.draw do
   post   '/login'   => 'sessions#create'
   delete '/logout'  => 'sessions#destroy'
   get '/destroy' => 'sessions#destroy'
+
   post	'/users/1'	=>	'users_path(user)'
   post '/artists/new' => 'artists#new'
   post '/venues/new' => 'venues#new'
   post '/artists' => 'artists#create'
+  post '/venues' => 'venues#create'
   get 'artist_destroy' => 'artists#destroy'
   post 'artist_destroy' => 'artists#destroy'
   get 'venue_destroy' => 'venues#destroy'

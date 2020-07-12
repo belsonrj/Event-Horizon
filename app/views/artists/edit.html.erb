@@ -12,17 +12,12 @@
 
   <br>
   <h3>Venue attended:</h3>
-  <%= f.label "Venue:" %>
-  <%= f.collection_check_boxes :venue_ids, Venue.all, :id, :name %> <br>
+  
+  <%= f.collection_check_boxes :venue_ids, @user.venues.all, :id, :name %> <br>
   <%= f.fields_for :venues, @artist.venues.build do |venue_fields| %> <br>
-    <%= venue_fields.text_field :name %>
+    <%= venue_fields.text_field :name %> <br>
   <% end %>
   <br>
   <%= f.submit %>
   <% end %>
 
-
-
-      <% if logged_in? %>
-        <h1>You are Logged In, <%= current_user.username %></h1>
-      <%end%>

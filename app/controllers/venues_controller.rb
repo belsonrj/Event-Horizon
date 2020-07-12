@@ -1,5 +1,7 @@
 class VenuesController < ApplicationController
   before_action :set_venue, only: [:show, :edit, :update, :destroy]
+  before_action :current_user
+  skip_forgery_protection
 
   # GET /venues
   # GET /venues.json
@@ -30,11 +32,18 @@ class VenuesController < ApplicationController
   # POST /venues.json
   def create
     @user = current_user
+    @artist = Artist.create(params.require(:artist).permit(:name))
     @venue = Venue.create(params.require(:venue).permit(:name, :locale, :venue_type, :content))
     
-    @venue.save
     @user.venues << @venue
-    redirect_to user_path(@user)
+
+    if !params["artist"]["name"].empty?
+      @venue.artists << @artist
+      @user.artists << @artist
+    end
+    if @venue.save
+      redirect_to user_path(@user)
+    end
   end
 
   # PATCH/PUT /venues/1
@@ -69,6 +78,6 @@ class VenuesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def venue_params
-      params.require(:venue).permit(:name, :locale, :venue_type, :artist_ids => [], :artists_attributes => [:name])
+      params.require(:venue).permit(:name, :locale, :venue_type, :artist_ids => [])
     end
 end

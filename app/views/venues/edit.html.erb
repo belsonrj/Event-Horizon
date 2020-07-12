@@ -12,13 +12,13 @@
   <%= f.label "Venue Comments" %> <br>
   <%= f.text_area :content %><br>
 
-    <br>
+  <br>
   <h3>Performance by:</h3>
-  <%= f.label "Artist:" %>
+  
   <%= f.collection_check_boxes :artist_ids, Artist.all, :id, :name %> <br>
   <br>
   <%= f.fields_for :artists, @venue.artists.build do |artist_fields| %> <br>
-    <%= artist_fields.text_field :name %>
+    <%= artist_fields.text_field :name %><br>
   <% end %>
   <br>
 
@@ -26,8 +26,3 @@
   <%= f.submit %>
 <% end %>
 
-
-
-      <% if logged_in? %>
-        <h1>You are Logged In, <%= current_user.username %></h1>
-      <%end%>

@@ -33,10 +33,15 @@ class ArtistsController < ApplicationController
   # POST /artists.json
   def create
     @user = current_user
-  
+    @venue = Venue.create(params.require(:venue).permit(:name))
     @artist = Artist.create(artist_params)
 
     @user.artists << @artist
+
+    if !params["venue"]["name"].empty?
+      @artist.venues << @venue
+      @user.venues << @venue
+    end
     if @artist.save
       redirect_to user_path(@user)
     end
@@ -60,7 +65,6 @@ class ArtistsController < ApplicationController
   def met
     @user = current_user
     @artist_met = current_user.artists.select {|artist| artist.met == true} 
-
   end
 
   def delete
@@ -80,6 +84,8 @@ class ArtistsController < ApplicationController
     redirect_to user_path(@user)
   end
 
+  
+
   private
 
     #def current_user
@@ -93,6 +99,6 @@ class ArtistsController < ApplicationController
     # Only allow a list of trusted parameters through.
     def artist_params
       #params.require(:artist).permit(venue_ids: [])
-      params.require(:artist).permit(:name, :genre, :times_seen, :met, :venue_ids => [], :venues_attributes => [:name])
+      params.require(:artist).permit(:name, :genre, :times_seen, :met, :venue_ids => [])
     end
 end

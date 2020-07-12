@@ -13,8 +13,8 @@
   <%= f.check_box :met %> <br>
   <br>
 
-  <%= f.label "Venue Attended?" %>
-  <% Venue.all.each do |v| %>
+  <h2><%= f.label "Venue Attended?" %></h2>
+  <% @user.venues.all.each do |v| %>
     <p>
       <label for="venue_id_<%= v.id %>"><%= v.name %></label>
       <input type="checkbox" name="artist[venue_ids][]" value="<%= v.id %>">
@@ -22,8 +22,11 @@
   <% end %>
 
   <p>
-  <%= f.label "Create a New Venue" %> <br>
-  <input type="text" id="artist_venues_attributes_0_name" name="artist[venues_attributes][0][name]" />
+    <strong><%= f.label "Create a New Venue:" %> <br></strong>
+    <br>
+    <%= f.label "Venue Name:" %>
+    <input type="text" id="name" name="venue[name]" />
+  
   </p>
   <%= f.submit %>
 <% end %> 
