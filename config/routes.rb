@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :sessions, only: [:new, :create, :destroy]
   resources :users
   resources :users do
-    resources :artists, only: [:index, :show, :create, :destroy, :delete]
+    resources :artists, only: [:index, :show, :create, :destroy, :delete, :met]
     resources :venues, only: [:index, :show, :create, :destroy]
   end
 
@@ -24,6 +24,8 @@ Rails.application.routes.draw do
   get 'venue_destroy' => 'venues#destroy'
   post 'venue_destroy' => 'venues#destroy'
   post 'sessions/:id' => 'sessions#destroy'
+  get 'artist/action' => 'artists#met'
+
   #get '/users/:id/artist/:id' => 'artists#show'
   #get 'users/:id' => 'artists#met'
   #post 'users/:id' => 'artists#artists_met'

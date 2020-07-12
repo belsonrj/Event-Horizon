@@ -1,6 +1,11 @@
-
+<!DOCTYPE html>
+<html>
+  <body>
+    <h1>Artists You've Met</h1>
        
-       <% @artists_met.each do |artist| %>
+       <% @artist_met.each do |artist| %>
         <li><%= link_to artist.name, user_artist_path(@user, artist) %></li>
 
       <% end %>
+  </body>
+</html>

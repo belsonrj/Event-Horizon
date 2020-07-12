@@ -58,12 +58,9 @@ class ArtistsController < ApplicationController
   end
 
   def met
-  end
-
-  def artists_met
     @user = current_user
-    @artist_met = current_user.artists.select {|artist| artist.met == 't'}.sort_by(&:created_at)
-    render :met
+    @artist_met = current_user.artists.select {|artist| artist.met == true} 
+
   end
 
   def delete
@@ -72,6 +69,7 @@ class ArtistsController < ApplicationController
     venues = artist.venues.find(params[:venue_id])
     artist.venues.delete(params[:venue_id])
   end
+
 
   # DELETE /artists/1
   # DELETE /artists/1.json

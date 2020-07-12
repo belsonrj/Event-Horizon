@@ -3,6 +3,7 @@
   <body>
     
       <h1>Welcome, <%= @user.username.upcase%>! </h1>
+      <%= button_to "Artists You've Met", artist_action_path(@user), method: :get %>
    
     <h2><%= @user.username.upcase %>'s saved Artists:</h2>
        <%= button_to "Add Artist", :controller => 'artists', :action => 'new' %>
@@ -28,9 +29,6 @@
   <%= button_to "Logout", :controller => 'sessions', :action => 'destroy' %>
 
 
-      <% if logged_in? %>
-        <h1>You are Logged In, <%= current_user.username %></h1>
-      <%end%>
   </body>
 </html>
 
