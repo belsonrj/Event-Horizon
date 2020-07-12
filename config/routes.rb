@@ -25,10 +25,9 @@ Rails.application.routes.draw do
   post 'venue_destroy' => 'venues#destroy'
   post 'sessions/:id' => 'sessions#destroy'
   get 'artist/action' => 'artists#met'
+  post 'users/:id' => 'users#show'
 
-  #get '/users/:id/artist/:id' => 'artists#show'
-  #get 'users/:id' => 'artists#met'
-  #post 'users/:id' => 'artists#artists_met'
+
 
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

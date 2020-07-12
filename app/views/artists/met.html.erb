@@ -7,5 +7,7 @@
         <li><%= link_to artist.name, user_artist_path(@user, artist) %></li>
 
       <% end %>
+      <br>
+      <%= button_to "Home", user_path(@user) %>
   </body>
 </html>
