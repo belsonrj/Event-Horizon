@@ -18,6 +18,6 @@
     <ul>
       <% @artist.venues.each do |venue| %>
         <li><%= link_to venue.name, user_venue_path(@user, venue) %></li>
-        <li><%= link_to "Remove", user_artist_path(venue, :artist_id => @artist.id), :method => :delete %></li>
+       
       <% end %>
     </ul>   
