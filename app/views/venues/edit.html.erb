@@ -3,14 +3,25 @@
 <br />
 
 <%= form_for(@venue) do |f| %>
-  <%= f.label "Name:" %> <br />
-  <%= f.text_field :name %> <br />
-  <%= f.label "Locale:" %> <br />
-  <%= f.text_field :locale %> <br />
-  <%= f.label "Venue Type:" %> <br />
-  <%= f.text_field :venue_type %> <br />
+  <%= f.label "Name:" %> <br>
+  <%= f.text_field :name %> <br>
+  <%= f.label "Locale:" %> <br>
+  <%= f.text_field :locale %> <br>
+  <%= f.label "Venue Type:" %> <br>
+  <%= f.select :venue_type, [ nil, 'Bar', 'Small', 'Medium', 'Large', 'Arena', 'Festival', 'Amphitheater', 'Pavillion', 'Outdoor', 'Theatre']%><br>
+  <%= f.label "Venue Comments" %> <br>
+  <%= f.text_area :content %><br>
 
-  <br />
+    <br>
+  <h3>Performance by:</h3>
+  <%= f.label "Artist:" %>
+  <%= f.collection_check_boxes :artist_ids, Artist.all, :id, :name %> <br>
+  <br>
+  <%= f.fields_for :artists, @venue.artists.build do |artist_fields| %> <br>
+    <%= artist_fields.text_field :name %>
+  <% end %>
+  <br>
+
 
   <%= f.submit %>
 <% end %>

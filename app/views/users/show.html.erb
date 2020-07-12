@@ -5,7 +5,7 @@
       <h1>Welcome, <%= @user.username.upcase%>! </h1>
    
     <h2><%= @user.username.upcase %>'s saved Artists:</h2>
-       <%= link_to "Add Artist", :controller => 'artists', :action => 'new' %>
+       <%= button_to "Add Artist", :controller => 'artists', :action => 'new' %>
     <ul>
        <% @user.artists.each do |artist| %>
         <li><%= link_to artist.name, user_artist_path(@user, artist) %></li>
@@ -13,9 +13,10 @@
       <% end %>
     </ul>        
    
+
   
     <h2><%= @user.username.upcase %>'s saved Venues:</h2>
-     <%= link_to "Add Venue", :controller => 'venues', :action => 'new' %>
+     <%= button_to "Add Venue", :controller => 'venues', :action => 'new' %>
     <ul>
       <% @user.venues.each do |venue| %>
         <li><%= link_to venue.name, user_venue_path(@user, venue) %></li>
@@ -24,7 +25,7 @@
     </ul>       
   
 
-  <%= link_to "Logout", :controller => 'sessions', :action => 'destroy' %>
+  <%= button_to "Logout", :controller => 'sessions', :action => 'destroy' %>
 
 
       <% if logged_in? %>

@@ -8,7 +8,7 @@
   <%= f.label "Genre" %> <br />
   <%= f.text_field :genre %> <br />
   <%= f.label "Times Seen" %> <br />
-  <%= f.text_field :times_seen %> <br />
+  <%= f.select :times_seen, (1..99) %> <br>
 
   <br>
   <h3>Venue attended:</h3>
@@ -19,7 +19,7 @@
   <% end %>
   <br>
   <%= f.submit %>
-<% end %>
+  <% end %>
 
 
 

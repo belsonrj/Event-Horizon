@@ -17,6 +17,7 @@
     <ul>
       <% @venue.artists.each do |artist| %>
         <li><%= link_to artist.name, user_artist_path(@user, artist) %></li>
-        <td><%= link_to "Delete", artist_destroy_path(id: @artist.id) %></td>
+        <td><%= link_to 'Remove', artist, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        
       <% end %>
     </ul>   

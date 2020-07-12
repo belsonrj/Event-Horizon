@@ -40,25 +40,25 @@ class VenuesController < ApplicationController
   # PATCH/PUT /venues/1
   # PATCH/PUT /venues/1.json
   def update
-    respond_to do |format|
-      if @venue.update(venue_params)
-        format.html { redirect_to @venue, notice: 'Venue was successfully updated.' }
-        format.json { render :show, status: :ok, location: @venue }
-      else
-        format.html { render :edit }
-        format.json { render json: @venue.errors, status: :unprocessable_entity }
-      end
+    @user = current_user
+    @venue = Venue.find(params[:id])
+
+    @venue.update(venue_params)
+   
+    if @venue.save
+      redirect_to user_path(@user)
+    else
+      render :edit
     end
   end
 
   # DELETE /venues/1
   # DELETE /venues/1.json
   def destroy
+    @user = current_user
+    @venue = Venue.find(params[:id])
     @venue.destroy
-    respond_to do |format|
-      format.html { redirect_to venues_url, notice: 'Venue was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    redirect_to user_path(@user)
   end
 
   private
@@ -69,6 +69,6 @@ class VenuesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def venue_params
-      params.require(:venue).permit(:name, :locale, :venue_type)
+      params.require(:venue).permit(:name, :locale, :venue_type, :artist_ids => [], :artists_attributes => [:name])
     end
 end

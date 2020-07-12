@@ -3,19 +3,28 @@
 <br />
 
 <%= form_for(@artist) do |f| %>
-  <%= f.label "Name" %> <br />
-  <%= f.text_field :name %> <br />
-  <%= f.label "Genre" %> <br />
-  <%= f.text_field :genre %> <br />
-  <%= f.label "Times Seen" %> <br />
-  <%= f.text_field :times_seen %> <br />
-  <%= f.label "Met?" %> <br />
-  <%= f.check_box :met %> <br />
+  <%= f.label "Name" %> <br>
+  <%= f.text_field :name %> <br>
+  <%= f.label "Genre" %> <br>
+  <%= f.text_field :genre %> <br>
+  <%= f.label "Times Seen" %> <br>
+  <%= f.select :times_seen, (1..99) %> <br>
+  <%= f.label "Met?" %> <br>
+  <%= f.check_box :met %> <br>
   <br>
-  <%= f.label "Venue Attended?" %> <br>
-  <%= f.collection_check_boxes :venue_ids, Venue.all, :id, :name %>
 
-  <br>
+  <%= f.label "Venue Attended?" %>
+  <% Venue.all.each do |v| %>
+    <p>
+      <label for="venue_id_<%= v.id %>"><%= v.name %></label>
+      <input type="checkbox" name="artist[venue_ids][]" value="<%= v.id %>">
+    </p>
+  <% end %>
+
+  <p>
+  <%= f.label "Create a New Venue" %> <br>
+  <input type="text" id="artist_venues_attributes_0_name" name="artist[venues_attributes][0][name]" />
+  </p>
   <%= f.submit %>
 <% end %> 
 

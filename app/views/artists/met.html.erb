@@ -1,0 +1,6 @@
+
+       
+       <% @artists_met.each do |artist| %>
+        <li><%= link_to artist.name, user_artist_path(@user, artist) %></li>
+
+      <% end %>
