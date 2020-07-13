@@ -16,14 +16,13 @@ class SessionsController < ApplicationController
 
       oauth_username = request.env["omniauth.auth"]["info"]["nickname"]
       if @user = User.find_by(:username => oauth_username)
-        #raise "Existing User Logging in VIA GitHub".inspect
-
         session[:user_id] = @user.id
 
         redirect_to user_path(@user)
       else  
-        #raise "New User Logging in VIA GitHub".inspect
         @user = User.create(:username => oauth_username, :password => SecureRandom.hex)
+        session[:user_id] = @user.id
+        redirect_to user_path(@user)
       end
     else 
       @user = User.find_by(:username => params[:username])
