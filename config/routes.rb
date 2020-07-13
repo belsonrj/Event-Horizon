@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   post   '/signup'  => 'users#create'
   get    '/login'   => 'sessions#new'
   post   '/login'   => 'sessions#create'
+  get '/auth/github/callback' => 'sessions#create'
   delete '/logout'  => 'sessions#destroy'
   get '/destroy' => 'sessions#destroy'
 
@@ -20,7 +21,7 @@ Rails.application.routes.draw do
   post '/artists/new' => 'artists#new'
   post '/venues/new' => 'venues#new'
   post '/artists' => 'artists#create'
-  post '/venues' => 'venues#create'
+  
   get 'artist_destroy' => 'artists#destroy'
   post 'artist_destroy' => 'artists#destroy'
   get 'venue_destroy' => 'venues#destroy'

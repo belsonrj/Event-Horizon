@@ -1,7 +1,7 @@
 class ArtistsController < ApplicationController
   before_action :set_artist, only: [:show, :edit, :update, :destroy]
   before_action :current_user 
-  skip_forgery_protection
+  #skip_forgery_protection
 
   # GET /artists
   # GET /artists.json

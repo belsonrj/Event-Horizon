@@ -12,11 +12,29 @@ class SessionsController < ApplicationController
   end
 
   def create
-    @user = User.find_by(:username => params[:username])
-    @user && @user.authenticate(params[:password])
-      session[:user_id] = @user.id
-      redirect_to user_path(@user)
+    if auth_hash = request.env["omniauth.auth"]
 
+      oauth_username = request.env["omniauth.auth"]["info"]["nickname"]
+      if @user = User.find_by(:username => oauth_username)
+        #raise "Existing User Logging in VIA GitHub".inspect
+
+        session[:user_id] = @user.id
+
+        redirect_to user_path(@user)
+      else  
+        #raise "New User Logging in VIA GitHub".inspect
+        @user = User.create(:username => oauth_username, :password => SecureRandom.hex)
+      end
+    else 
+      @user = User.find_by(:username => params[:username])
+      if @user && @user.authenticate(params[:password])
+         session[:user_id] = @user.id
+        
+         redirect_to user_path(@user)
+      else
+        render 'sessions/welcome'
+      end
+    end
   end
 
 
@@ -29,6 +47,9 @@ class SessionsController < ApplicationController
 
   private
 
+  def auth_hash
+    request.env['omniauth.auth']
+  end
   #def set_user
   #  @user = User.find_by
   #end
