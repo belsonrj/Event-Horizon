@@ -14,11 +14,12 @@
   <br>
 
   <h2><%= f.label "Venue Attended?" %></h2>
+  
   <% @user.venues.all.each do |v| %>
-    <p>
+    
       <label for="venue_id_<%= v.id %>"><%= v.name %></label>
       <input type="checkbox" name="artist[venue_ids][]" value="<%= v.id %>">
-    </p>
+    
   <% end %>
 
   <p>

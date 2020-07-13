@@ -1,17 +1,14 @@
 <!DOCTYPE html>
 <html>
   <body>
-    
-      <h1>Welcome, <%= @user.username.upcase%>! </h1>
-    
-   
+     
 
-  <div style="width: 100%; overflow: hidden;">
-    <div style="width: 600px; float: left;">       
+  <div style="width: 100%; overflow: auto; height: 500px">
+    <div style="width: 500px; float: left;">       
     
     <%= button_to "Artists You've Met", artist_action_path(@user), method: :get %>
    
-    <h2><%= @user.username.upcase %>'s saved Artists:</h2> 
+    <h2>Saved Artists:</h2> 
       <p> Artist Count: <%= @user.artists.count %></P>
 
        <%= button_to "Add Artist", :controller => 'artists', :action => 'new' %>
@@ -23,11 +20,11 @@
     </ul>     
     </div>
 
-    <div style="margin-left: 620px;">     
+    <div style="margin-left: 420px;">     
 
     <%= button_to "Top Rated Venues", artist_action_path(@user), method: :get %>
     
-    <h2><%= @user.username.upcase %>'s saved Venues:</h2>
+    <h2>Saved Venues:</h2>
     <p> Venue Count: <%= @user.venues.count %></P>
 
      <%= button_to "Add Venue", :controller => 'venues', :action => 'new' %>
@@ -40,7 +37,7 @@
     
     
   
-  </div>
+     </div>
   <br>
   <%= button_to "Logout", :controller => 'sessions', :action => 'destroy' %>
 

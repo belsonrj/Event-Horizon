@@ -12,12 +12,13 @@
 
   <br>
   <h3>Venue attended:</h3>
-  
-  <%= f.collection_check_boxes :venue_ids, @user.venues.all, :id, :name %> <br>
-  <%= f.fields_for :venues, @artist.venues.build do |venue_fields| %> <br>
+  <div class="row">
+    <%= f.collection_check_boxes :venue_ids, @user.venues.all, :id, :name %>
+    <%= f.fields_for :venues, @artist.venues.build do |venue_fields| %> <br>
+  </div>
     <%= venue_fields.text_field :name %> <br>
-  <% end %>
+    <% end %>
   <br>
-  <%= f.submit %>
-  <% end %>
-
+    <%= f.submit %>
+    <% end %>
+  
