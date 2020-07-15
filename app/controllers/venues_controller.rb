@@ -72,7 +72,11 @@ class VenuesController < ApplicationController
 
   def rating
     @user = current_user
-    @venue_rating = current_user.venues.select {|venue| venue.layout == 4}
+
+    @venue_layout = current_user.venues.select {|venue| venue.layout >= 4}
+    @venue_sound = current_user.venues.select {|venue| venue.sound >= 4}
+    @venue_comfort = current_user.venues.select {|venue| venue.comfort >= 4}
+    @venue_prices = current_user.venues.select {|venue| venue.prices >= 4}
   end
 
   private

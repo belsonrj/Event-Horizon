@@ -4,26 +4,26 @@
     <h1>Top Rated Venues</h1>
        
        <h3>Layout:</h3>
-       <% @venue_rating.each do |venue| %>
+       <% @venue_layout.sort_by(&:layout).reverse.each do |venue| %>
         <li><%= link_to venue.name, user_venue_path(@user, venue) %> <%=venue.layout%> </li>
 
       <% end %>
       <br>
        <h3>Sound:</h3>
-       <% @venue_rating.each do |venue| %>
-        <li><%= link_to venue.name, user_venue_path(@user, venue) %> <%=venue.layout%> </li>
+       <% @venue_sound.sort_by(&:sound).reverse.each do |venue| %>
+        <li><%= link_to venue.name, user_venue_path(@user, venue) %> <%=venue.sound%> </li>
 
       <% end %>
       <br>
         <h3>Comfort:</h3>
-       <% @venue_rating.each do |venue| %>
-        <li><%= link_to venue.name, user_venue_path(@user, venue) %> <%=venue.layout%> </li>
+       <% @venue_comfort.sort_by(&:comfort).reverse.each do |venue| %>
+        <li><%= link_to venue.name, user_venue_path(@user, venue) %> <%=venue.comfort%> </li>
 
       <% end %>
       <br>
         <h3>Prices:</h3>
-       <% @venue_rating.each do |venue| %>
-        <li><%= link_to venue.name, user_venue_path(@user, venue) %> <%=venue.layout%> </li>
+       <% @venue_prices.sort_by(&:prices).reverse.each do |venue| %>
+        <li><%= link_to venue.name, user_venue_path(@user, venue) %> <%=venue.prices%> </li>
 
       <% end %>
       <br>
