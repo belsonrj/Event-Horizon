@@ -28,6 +28,7 @@ Rails.application.routes.draw do
   post 'venue_destroy' => 'venues#destroy'
   post 'sessions/:id' => 'sessions#destroy'
   get 'artist/action' => 'artists#met'
+  get 'venue/action' => 'venues#rating'
   post 'users/:id' => 'users#show'
 
 

@@ -22,7 +22,7 @@
 
     <div style="margin-left: 420px;">     
 
-    <%= button_to "Top Rated Venues", artist_action_path(@user), method: :get %>
+    <%= button_to "Top Rated Venues", venue_action_path(@user), method: :get %>
     
     <h2>Saved Venues:</h2>
     <p> Venue Count: <%= @user.venues.count %></P>

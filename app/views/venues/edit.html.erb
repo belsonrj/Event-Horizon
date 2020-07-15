@@ -1,5 +1,5 @@
 <h1>Edit Venue:</h1>
-
+<h1><%= @venue.name %></h1>
 <br />
 
 <%= form_for(@venue) do |f| %>
@@ -23,7 +23,7 @@
   <br>
   <h3>Performance by:</h3>
   
-  <%= f.collection_check_boxes :artist_ids, Artist.all, :id, :name %> <br>
+  <%= f.collection_check_boxes :artist_ids, @user.artists.all, :id, :name %> <br>
   <br>
   <%= f.fields_for :artists, @venue.artists.build do |artist_fields| %> <br>
     <%= artist_fields.text_field :name %><br>

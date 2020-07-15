@@ -70,6 +70,11 @@ class VenuesController < ApplicationController
     redirect_to user_path(@user)
   end
 
+  def rating
+    @user = current_user
+    @venue_rating = current_user.venues.select {|venue| venue.layout == 4}
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_venue
