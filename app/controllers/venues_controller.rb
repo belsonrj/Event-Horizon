@@ -33,7 +33,7 @@ class VenuesController < ApplicationController
   def create
     @user = current_user
     @artist = Artist.create(params.require(:artist).permit(:name))
-    @venue = Venue.create(params.require(:venue).permit(:name, :locale, :venue_type, :content))
+    @venue = Venue.create(venue_params)
     
     @user.venues << @venue
 
@@ -78,6 +78,6 @@ class VenuesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def venue_params
-      params.require(:venue).permit(:name, :locale, :venue_type, :artist_ids => [])
+      params.require(:venue).permit(:name, :locale, :venue_type, :layout, :sound, :comfort, :prices, :content, :artist_ids => [])
     end
 end

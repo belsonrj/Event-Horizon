@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_05_225910) do
+ActiveRecord::Schema.define(version: 2020_07_15_020733) do
 
   create_table "artist_venues", force: :cascade do |t|
     t.integer "artist_id"
@@ -47,6 +47,10 @@ ActiveRecord::Schema.define(version: 2020_07_05_225910) do
     t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "layout"
+    t.integer "sound"
+    t.integer "comfort"
+    t.integer "prices"
     t.index ["user_id"], name: "index_venues_on_user_id"
   end
 

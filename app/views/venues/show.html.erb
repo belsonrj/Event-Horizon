@@ -1,17 +1,26 @@
 <p id="notice"><%= notice %></p>
 <h1><%= @venue.name %></h1>
 
+<%= link_to 'Edit', edit_venue_path(@venue) %> |
+<%= link_to "Delete", venue_destroy_path(id: @venue.id) %> |
+<%= link_to 'Home', user_path(@user) %>
+
 <h2>Locale:</h2>
 <%= @venue.locale %>
 <h2>Venue Type:</h2>
 <%= @venue.venue_type %>
+<h2>Layout:</h2>
+<%= @venue.layout %>
+<h2>Sound:</h2>
+<%= @venue.sound %>
+<h2>Comfort:</h2>
+<%= @venue.comfort %>
+<h2>Prices:</h2>
+<%= @venue.prices %>
 <h2>Venue Comments:</h2>
 <p><%= @venue.content %></p>
 <br>
-<br>
-<%= link_to 'Edit', edit_venue_path(@venue) %> |
-<%= link_to "Delete", venue_destroy_path(id: @venue.id) %> |
-<%= link_to 'Back', user_path(@user) %>
+
 
 <h2>Artists You've Seen At This Venue:</h2>
     <ul>
