@@ -32,7 +32,10 @@
 
   <p>
   <%= f.label "Create a New Artist" %> <br>
-  <input type="text" id="name" name="artist[name]" />
+  <%= f.label "Name" %> <br>
+  <input type="text" id="name" name="artist[name]" /> <br>
+  <%= f.label "Genre" %> <br>
+  <input type="text" id="genre" name="artist[genre]" /> <br>
   </p>
   <%= f.submit %>
 <% end %> 

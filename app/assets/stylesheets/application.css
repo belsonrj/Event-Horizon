@@ -20,8 +20,10 @@ p {
 }
 
 div#container {
-    width: 760px;
+    width: 860px;
     margin: 0 auto;
+    margin-left: 0 auto;
+    margin-right: 0 auto;
 }
 
 div#header {
@@ -49,7 +51,7 @@ ul#books li {
 
 div#sidebar {
     width: 200px;
-    margin-left: 480px;
+    margin-left: 380px;
 }
 
 ul#subjects {

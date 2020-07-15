@@ -9,15 +9,26 @@
   <%= f.text_field :genre %> <br />
   <%= f.label "Times Seen" %> <br />
   <%= f.select :times_seen, (1..99) %> <br>
+  <%= f.label "Met?" %> <br>
+  <%= f.check_box :met %> <br>
 
   <br>
   <h3>Venue attended:</h3>
   <div class="row">
     <%= f.collection_check_boxes :venue_ids, @user.venues.all, :id, :name %>
     <%= f.fields_for :venues, @artist.venues.build do |venue_fields| %> <br>
-  </div>
-    <%= venue_fields.text_field :name %> <br>
+
     <% end %>
+  </div>
+  <p>
+    <strong><%= f.label "Create a New Venue:" %> <br></strong>
+    <br>
+    <%= f.label "Venue Name:" %> <br>
+    <input type="text" id="name" name="venue[name]" /> <br>
+    <%= f.label "Locale:" %> <br>
+    <input type="text" id="locale" name="venue[locale]" /> <br>
+  
+  </p>
   <br>
     <%= f.submit %>
     <% end %>

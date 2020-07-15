@@ -33,7 +33,7 @@ class ArtistsController < ApplicationController
   # POST /artists.json
   def create
     @user = current_user
-    @venue = Venue.create(params.require(:venue).permit(:name))
+    @venue = Venue.create(params.require(:venue).permit(:name, :locale))
     @artist = Artist.create(artist_params)
 
     @user.artists << @artist
@@ -52,9 +52,14 @@ class ArtistsController < ApplicationController
   def update
     @user = current_user
     @artist = Artist.find(params[:id])
-
+    @venue = Venue.create(params.require(:venue).permit(:name, :locale))
+    
     @artist.update(artist_params)
    
+    if !params["venue"]["name"].empty?
+      @artist.venues << @venue
+      @user.venues << @venue
+    end
     if @artist.save
       redirect_to user_path(@user)
     else
