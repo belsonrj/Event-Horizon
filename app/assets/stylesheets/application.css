@@ -71,6 +71,12 @@ div#content h3 {
     margin-top: 15px;
 }
 
+div#login {
+    border-style: outset;
+    width: 300px;
+    padding: 10px
+}
+
 ul#books {
     list-style-type: none;
 }

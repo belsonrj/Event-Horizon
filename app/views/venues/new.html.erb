@@ -1,3 +1,4 @@
+<div id=login>
 <h1>New Venue</h1>
 
 <br />
@@ -19,7 +20,7 @@
   <%= f.select :prices, [ nil, '1', '2', '3', '4', '5']%><br>
   <%= f.label "Venue Comments" %> <br>
   <%= f.text_area :content %><br>
-
+</div>
   <br>
 
   <h2><%= f.label "Artist?" %></h2>
@@ -36,6 +37,10 @@
   <input type="text" id="name" name="artist[name]" /> <br>
   <%= f.label "Genre" %> <br>
   <input type="text" id="genre" name="artist[genre]" /> <br>
+  <%= f.label "Times Seen" %> <br>
+  <input type="text" id="times_seen" name="artist[times_seen]" /> <br>
+  <%= f.label "Met?" %> <br>
+  <input type="checkbox" id="met" name="artist[met]" /> <br>
   </p>
   <%= f.submit %>
 <% end %> 

@@ -32,7 +32,7 @@ class VenuesController < ApplicationController
   # POST /venues.json
   def create
     @user = current_user
-    @artist = Artist.create(params.require(:artist).permit(:name, :genre))
+    @artist = Artist.create(artist_params)
     @venue = Venue.create(venue_params)
     
     @user.venues << @venue
@@ -50,7 +50,7 @@ class VenuesController < ApplicationController
   # PATCH/PUT /venues/1.json
   def update
     @user = current_user
-    @artist = Artist.create(params.require(:artist).permit(:name, :genre))
+    @artist = Artist.create(artist_params)
     @venue = Venue.find(params[:id])
 
     @venue.update(venue_params)
@@ -88,6 +88,10 @@ class VenuesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_venue
       @venue = Venue.find(params[:id])
+    end
+
+    def artist_params
+      params.require(:artist).permit(:name, :genre, :times_seen, :met)
     end
 
     # Only allow a list of trusted parameters through.

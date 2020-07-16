@@ -24,7 +24,7 @@
 <h1 id="title">Artists You've Seen At This Venue:</h1>
     <ul id=subjects>
       <% @venue.artists.each do |artist| %>
-        <li><%= link_to artist.name, user_artist_path(@user, artist) %></li>
+        <%= link_to artist.name, user_artist_path(@user, artist) %><br>
         
       <% end %>
     </ul>   

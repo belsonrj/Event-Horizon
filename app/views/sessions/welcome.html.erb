@@ -5,7 +5,7 @@
 <h2 id=top>Your Handy Event Indexer</h2>
 <body>
 
-
+  <div id=login>
   <h1>Login</h1>
      <%= form_tag '/login' do %>
      <%= label_tag :username%>
@@ -19,9 +19,8 @@
   <br>
   <%= link_to('Log in with GITHUB!', '/auth/github') %>
   
-
-<p>New user? <%= link_to "Sign up now!", signup_path %></p>
-
+    <p>New user? <%= link_to "Sign up now!", signup_path %></p>
+  </div>
     
       <% if logged_in? %>
         <h1>You are Logged In, <%= current_user.username %></h1>

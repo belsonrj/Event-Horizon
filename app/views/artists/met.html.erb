@@ -2,14 +2,16 @@
 <html>
   <body>
     <h1 id=title>Artists You've Met</h1>
+      
+      <%= button_to "Home", user_path(@user) %>
+    
        <h2> Artist Count: <%= @artist_met.count %></h2>
 
        <ul id=list>
-       <% @artist_met.each do |artist| %>
+       <% @artist_met.sort_by(&:name).each do |artist| %>
         <li><%= link_to artist.name, user_artist_path(@user, artist) %></li>
        <% end %>
        </ul>
-      <br>
-      <%= button_to "Home", user_path(@user) %>
+
   </body>
 </html>
