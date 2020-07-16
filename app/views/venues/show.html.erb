@@ -1,29 +1,28 @@
 <p id="notice"><%= notice %></p>
-<h1><%= @venue.name %></h1>
+<h1 id="title"><%= @venue.name %></h1>
 
 <%= link_to 'Edit', edit_venue_path(@venue) %> |
 <%= link_to "Delete", venue_destroy_path(id: @venue.id) %> |
 <%= link_to 'Home', user_path(@user) %>
 
 <h2>Locale:</h2>
-<%= @venue.locale %>
+<h3 id="show"><%= @venue.locale %>
 <h2>Venue Type:</h2>
-<%= @venue.venue_type %>
+<h3 id="show"><%= @venue.venue_type %>
 <h2>Layout:</h2>
-<%= @venue.layout %>
+<h3 id="show"><%= @venue.layout %>
 <h2>Sound:</h2>
-<%= @venue.sound %>
+<h3 id="show"><%= @venue.sound %>
 <h2>Comfort:</h2>
-<%= @venue.comfort %>
+<h3 id="show"><%= @venue.comfort %>
 <h2>Prices:</h2>
-<%= @venue.prices %>
+<h3 id="show"><%= @venue.prices %>
 <h2>Venue Comments:</h2>
-<p><%= @venue.content %></p>
+<h3 id="show"><%= @venue.content %></h3>
 <br>
 
-
-<h2>Artists You've Seen At This Venue:</h2>
-    <ul>
+<h1 id="title">Artists You've Seen At This Venue:</h1>
+    <ul id=subjects>
       <% @venue.artists.each do |artist| %>
         <li><%= link_to artist.name, user_artist_path(@user, artist) %></li>
         

@@ -1,7 +1,7 @@
 body {
     font-family: Helvetica, Geneva, Arial, sans-serif;
     font-size: medium;
-    font-color: #000;
+    color: #000;
     background-color: rgba(117, 190, 218, 0.5);
 }
 
@@ -17,6 +17,36 @@ input {
 
 p {
     line-height: 150%;
+}
+
+h1#app {
+    text-decoration: underline;
+    font-style: bold;
+    font: Helvetica;
+    background-color: rgba(52, 52, 52, 0.626);
+    color: rgb(255, 232, 232);
+}
+
+h1#title {
+    text-decoration: underline;
+    font-style: italic;
+    font: Helvetica;
+    background-color: rgba(248, 233, 18, 0.918);
+    color: rgb(43, 71, 91);
+}
+
+h2#top {
+    text-decoration: underline;
+    font: Geneva;
+    background-color: rgb(72, 80, 123);
+    color: rgb(168, 168, 172);
+    animation: mymove 1s infinite;
+}
+
+h3#show {
+    font: Helvetica;
+    background-color: rgba(240, 231, 169, 0.918);
+    color: rgb(29, 38, 214);
 }
 
 div#container {
@@ -56,11 +86,17 @@ div#sidebar {
 
 ul#subjects {
     width: 700px;
-    text-align: center;
+    text-align: left;
+    font-size: large;
     padding: 5px;
     background-color: #ececec;
     border: 1px solid #ccc;
     margin-bottom: 20px;
+}
+
+ul#list {
+    text-align: left;
+    font-size: large;
 }
 
 ul#subjects li {

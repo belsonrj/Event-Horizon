@@ -15,7 +15,7 @@
 
   <h2><%= f.label "Venue Attended?" %></h2>
   
-  <% @user.venues.all.each do |v| %>
+  <% @user.venues.all.sort_by(&:name).each do |v| %>
     
       <label for="venue_id_<%= v.id %>"><%= v.name %></label>
       <input type="checkbox" name="artist[venue_ids][]" value="<%= v.id %>">
@@ -25,9 +25,10 @@
   <p>
     <strong><%= f.label "Create a New Venue:" %> <br></strong>
     <br>
-    <%= f.label "Venue Name:" %>
-    <input type="text" id="name" name="venue[name]" />
-    <input type="text" id="locale" name="venue[locale]" />
+    <%= f.label "Venue Name:" %> <br>
+    <input type="text" id="name" name="venue[name]" /> <br>
+    <%= f.label "Locale:" %> <br>
+    <input type="text" id="locale" name="venue[locale]" /> <br>
   
   </p>
   <%= f.submit %>

@@ -52,8 +52,8 @@ class ArtistsController < ApplicationController
   def update
     @user = current_user
     @artist = Artist.find(params[:id])
-    @venue = Venue.create(params.require(:venue).permit(:name, :locale))
-    
+    @venue = Venue.create(venue_params)
+
     @artist.update(artist_params)
    
     if !params["venue"]["name"].empty?
@@ -105,5 +105,9 @@ class ArtistsController < ApplicationController
     def artist_params
       #params.require(:artist).permit(venue_ids: [])
       params.require(:artist).permit(:name, :genre, :times_seen, :met, :venue_ids => [])
+    end
+
+    def venue_params
+      params.require(:venue).permit(:name, :locale)
     end
 end

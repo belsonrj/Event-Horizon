@@ -1,12 +1,12 @@
 <p id="notice"><%= notice %></p>
-<h1><%= @artist.name %></h1>
+<h1 id="title"><%= @artist.name %></h1>
 
 <h2>Genre:</h2>
-<%= @artist.genre %>
+<h3 id="show"><%= @artist.genre %>
 <h2>Times Seen:</h2>
-<%= @artist.times_seen %>
+<h3 id="show"><%= @artist.times_seen %>
 <h2>Met?</h2>
-<%= @artist.met %>
+<h3 id="show"><%= @artist.met %></h3>
 <br>
 <br>
 
@@ -14,8 +14,8 @@
 <%= link_to "Delete", artist_destroy_path(id: @artist.id) %> |
 <%= link_to 'Home', user_path(@user) %>
 
-<h2>Venues You've Seen This Artist At:</h2>
-    <ul>
+<h1 id="title">Venues You've Seen This Artist At:</h1>
+    <ul id=subjects>
       <% @artist.venues.each do |venue| %>
         <li><%= link_to venue.name, user_venue_path(@user, venue) %></li>
        

@@ -8,11 +8,11 @@
     
     <%= button_to "Artists You've Met", artist_action_path(@user), method: :get %>
    
-    <h2>Saved Artists:</h2> 
+    <h2 id=top>Saved Artists:</h2> 
       <p> Artist Count: <%= @user.artists.count %></P>
 
        <%= button_to "Add Artist", :controller => 'artists', :action => 'new' %>
-    <ul>
+    <ul id=list>
        <% @user.artists.sort_by(&:name).each do |artist| %>
         <li><%= link_to artist.name, user_artist_path(@user, artist) %></li>
 
@@ -24,11 +24,11 @@
 
     <%= button_to "Top Rated Venues", venue_action_path(@user), method: :get %>
     
-    <h2>Saved Venues:</h2>
+    <h2 id=top>Saved Venues:</h2>
     <p> Venue Count: <%= @user.venues.count %></P>
 
      <%= button_to "Add Venue", :controller => 'venues', :action => 'new' %>
-    <ul>
+    <ul id=list>
       <% @user.venues.sort_by(&:name).each do |venue| %>
         <li><%= link_to venue.name, user_venue_path(@user, venue) %></li>
 

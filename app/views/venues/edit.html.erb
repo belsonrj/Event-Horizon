@@ -23,12 +23,20 @@
   <br>
   <h3>Performance by:</h3>
   
-  <%= f.collection_check_boxes :artist_ids, @user.artists.all, :id, :name %> <br>
+  <%= f.collection_check_boxes :artist_ids, @user.artists.all.sort_by(&:name), :id, :name %> <br>
   <br>
   <%= f.fields_for :artists, @venue.artists.build do |artist_fields| %> <br>
-    <%= artist_fields.text_field :name %><br>
+    
   <% end %>
-  <br>
+  <p>
+    <strong><%= f.label "Create New Artist:" %> <br></strong>
+    <br>
+    <%= f.label "Artist Name:" %> <br>
+    <input type="text" id="name" name="artist[name]" /> <br>
+    <%= f.label "Genre:" %> <br>
+    <input type="text" id="locale" name="artist[genre]" /> <br>
+  
+  </p>
 
 
   <%= f.submit %>
