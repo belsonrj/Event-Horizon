@@ -85,7 +85,7 @@ class VenuesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
+ 
     def set_venue
       @venue = Venue.find(params[:id])
     end
@@ -94,7 +94,6 @@ class VenuesController < ApplicationController
       params.require(:artist).permit(:name, :genre, :times_seen, :met)
     end
 
-    # Only allow a list of trusted parameters through.
     def venue_params
       params.require(:venue).permit(:name, :locale, :venue_type, :layout, :sound, :comfort, :prices, :content, :artist_ids => [])
     end

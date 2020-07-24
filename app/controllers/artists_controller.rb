@@ -73,7 +73,6 @@ class ArtistsController < ApplicationController
   end
 
   def delete
-    #@venue.artists.delete(@artist)
     artist = Artist.find(params[:id])
     venues = artist.venues.find(params[:venue_id])
     artist.venues.delete(params[:venue_id])
@@ -96,14 +95,12 @@ class ArtistsController < ApplicationController
     #def current_user
     #  User.find_by(id: session[:user_id])
     #end
-    # Use callbacks to share common setup or constraints between actions.
+    
     def set_artist
       @artist = Artist.find(params[:id])
     end
 
-    # Only allow a list of trusted parameters through.
     def artist_params
-      #params.require(:artist).permit(venue_ids: [])
       params.require(:artist).permit(:name, :genre, :times_seen, :met, :venue_ids => [])
     end
 
