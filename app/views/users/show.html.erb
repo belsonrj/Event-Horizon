@@ -13,7 +13,7 @@
 
        <%= button_to "Add Artist", :controller => 'artists', :action => 'new' %>
     <ul id=list>
-       <% @user.artists.sort_by(&:name).each do |artist| %>
+       <% @user.artists.order_artists.each do |artist| %>
         <li><%= link_to artist.name, user_artist_path(@user, artist) %></li>
 
       <% end %>
@@ -29,7 +29,7 @@
 
      <%= button_to "Add Venue", :controller => 'venues', :action => 'new' %>
     <ul id=list>
-      <% @user.venues.sort_by(&:name).each do |venue| %>
+      <% @user.venues.order_venues.each do |venue| %>
         <li><%= link_to venue.name, user_venue_path(@user, venue) %></li>
 
       <% end %>
