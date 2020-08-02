@@ -6,5 +6,6 @@ class Artist < ApplicationRecord
   accepts_nested_attributes_for :venues
   
   scope :order_artists, -> { order(name: :asc) }
+  scope :artists_met, -> { where(met: true) }
 
 end

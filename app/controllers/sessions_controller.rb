@@ -31,6 +31,7 @@ class SessionsController < ApplicationController
         
          redirect_to user_path(@user)
       else
+        #format.html { render 'sessions/welcome', notice: "Email or password is invalid" }
         render 'sessions/welcome'
       end
     end

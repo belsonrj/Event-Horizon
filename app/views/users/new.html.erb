@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html>
+
+<%= render partial: "users/form", locals: {user: @user} %>
+
 <h1>Sign Up!</h1>
 
   <p>
     <%= form_for(@user) do |f| %>
-      <%= f.label :username%>
+      <%= f.label :username%><br>
       <%= f.text_field :username%><br>
-      <br>
-      <%= f.label :password%>
+      <%= f.label :password%><br>
       <%= f.password_field :password%><br>
       <br>
       <%= f.submit "Sign Up"%>

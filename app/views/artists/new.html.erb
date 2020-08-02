@@ -1,6 +1,7 @@
 <div id=login>
 <h1>New Artist:</h1>
-
+<br>
+<%= render partial: "users/form", locals: {user: @artist} %>
 <br>
 
 <%= form_for(@artist) do |f| %>
@@ -16,7 +17,7 @@
 </div>
   <h2><%= f.label "Venue Attended?" %></h2>
   
-  <% @user.venues.all.sort_by(&:name).each do |v| %>
+  <% @user.venues.all.order_venues.each do |v| %>
     
       <label for="venue_id_<%= v.id %>"><%= v.name %></label>
       <input type="checkbox" name="artist[venue_ids][]" value="<%= v.id %>">

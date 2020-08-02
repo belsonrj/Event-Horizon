@@ -43,6 +43,8 @@ class VenuesController < ApplicationController
     end
     if @venue.save
       redirect_to user_path(@user)
+    else
+      render :new
     end
   end
 

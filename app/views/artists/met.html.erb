@@ -8,7 +8,7 @@
        <h2> Artist Count: <%= @artist_met.count %></h2>
 
        <ul id=list>
-       <% @artist_met.sort_by(&:name).each do |artist| %>
+       <% @artist_met.order_artists.each do |artist| %>
         <li><%= link_to artist.name, user_artist_path(@user, artist) %></li>
        <% end %>
        </ul>

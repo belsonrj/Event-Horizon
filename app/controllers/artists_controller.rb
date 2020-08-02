@@ -44,6 +44,8 @@ class ArtistsController < ApplicationController
     end
     if @artist.save
       redirect_to user_path(@user)
+    else
+      render :new
     end
   end
 
@@ -69,7 +71,8 @@ class ArtistsController < ApplicationController
 
   def met
     @user = current_user
-    @artist_met = current_user.artists.select {|artist| artist.met == true} 
+    #@artist_met = current_user.artists.select {|artist| artist.met == true} 
+    @artist_met = current_user.artists.artists_met
   end
 
   def delete
