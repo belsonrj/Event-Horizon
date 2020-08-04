@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_15_020733) do
+ActiveRecord::Schema.define(version: 2020_08_04_034019) do
 
   create_table "artist_venues", force: :cascade do |t|
     t.integer "artist_id"
@@ -30,6 +30,26 @@ ActiveRecord::Schema.define(version: 2020_07_15_020733) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_artists_on_user_id"
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.string "content"
+    t.integer "user_id"
+    t.integer "event_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["event_id"], name: "index_comments_on_event_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
+  end
+
+  create_table "events", force: :cascade do |t|
+    t.string "name"
+    t.datetime "date"
+    t.string "city"
+    t.string "artist"
+    t.string "venue"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -57,5 +77,7 @@ ActiveRecord::Schema.define(version: 2020_07_15_020733) do
   add_foreign_key "artist_venues", "artists"
   add_foreign_key "artist_venues", "venues"
   add_foreign_key "artists", "users"
+  add_foreign_key "comments", "events"
+  add_foreign_key "comments", "users"
   add_foreign_key "venues", "users"
 end

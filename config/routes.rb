@@ -1,11 +1,15 @@
 Rails.application.routes.draw do
   resources :venues
   resources :artists
+  resources :events
+  resources :comments
   resources :sessions, only: [:new, :create, :destroy]
   resources :users
   resources :users do
-    resources :artists, only: [:index, :show, :create, :destroy, :new]
-    resources :venues, only: [:index, :show, :create, :destroy]
+    resources :artists#, only: [:index, :show, :create, :destroy, :new]
+    resources :venues#, only: [:index, :show, :create, :destroy]
+    resources :events
+    resources :comments
   end
 
   get '/' => 'sessions#welcome'
@@ -31,6 +35,8 @@ Rails.application.routes.draw do
   get 'venue/action' => 'venues#rating'
   post 'users/:id' => 'users#show'
 
+  post '/events/new' => 'events#new'
+  post '/events/:id' => 'events#show'
 
 
 

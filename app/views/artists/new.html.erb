@@ -1,8 +1,7 @@
 <div id=login>
 <h1>New Artist:</h1>
-<br>
+
 <%= render partial: "users/form", locals: {user: @artist} %>
-<br>
 
 <%= form_for(@artist) do |f| %>
   <%= f.label "Name" %> <br>

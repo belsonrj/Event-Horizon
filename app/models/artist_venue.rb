@@ -1,4 +1,4 @@
 class ArtistVenue < ApplicationRecord
-    belongs_to :artist
-    belongs_to :venue
+    belongs_to :artist, dependent: :destroy 
+    belongs_to :venue, dependent: :destroy 
   end

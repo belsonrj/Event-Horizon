@@ -1,0 +1,42 @@
+<body>   
+<div id=login>
+    <h1>New Event:</h1>
+    <br>
+    <%= render partial: "users/form", locals: {user: @event} %>
+        
+
+
+        <%= form_with(model: [@user, @event], local: true) do |form| %>
+            <% if @event.errors.any? %>
+                <div id="error_explanation">
+                    <h2>
+                        <%= pluralize(@event.errors.count, "error") %> prohibited this post from being saved:</h2>
+
+                    <ul>
+                        <% @event.errors.full_messages.each do |message| %>
+                            <li>
+                                <%= message %>
+                            </li>
+                            <% end %>
+                    </ul>
+                </div>
+                <% end %>
+        <div class="field">
+          <%= form.label :name %><br>
+          <%= form.text_field :name %><br>
+          <%= form.label :date %><br>
+          <%= form.date_field :date, as: :date, value: form.object.try(:strftime,"%m/%d/%Y"), class: 'form-control' %><br>
+          <%= form.label :city %><br>
+          <%= form.text_field :city %><br>
+          <%= form.label :artist %><br>
+          <%= form.text_field :artist %><br>
+          <%= form.label :venue %><br>
+          <%= form.text_field :venue %><br>
+        </div>
+
+        <div class="actions">
+           <%= form.submit %>
+        </div>
+        <% end %>
+</div>
+</body>

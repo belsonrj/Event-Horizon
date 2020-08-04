@@ -3,6 +3,8 @@ class User < ApplicationRecord
   validates :username, uniqueness: true, presence: true 
   has_many :artists, dependent: :destroy
   accepts_nested_attributes_for :artists
+  has_many :comments, dependent: :destroy
+  has_many :events, through: :comments
   has_many :venues, dependent: :destroy
   accepts_nested_attributes_for :venues
   has_many :artist_venues, dependent: :destroy

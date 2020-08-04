@@ -27,7 +27,7 @@ License: This project is licensed under the MIT License
 
     [x]• Your models must include reasonable validations for the simple attributes. You don't need to add every possible validation or duplicates, such as presence  and a minimum length, but the models should defend against invalid data. (use validates AR methods on models)
 
-    • Your forms should correctly display validation errors. (we talked about how to build this out using partials)
+    [x]• Your forms should correctly display validation errors. (we talked about how to build this out using partials)
 
     • You must include a nested new route with form that relates to the parent resource
 
