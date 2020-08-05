@@ -20,17 +20,13 @@ class EventsController < ApplicationController
   
     def create
       @user = current_user
-      @event = @user.events.build(event_params)
-
-       if @event.save  
+      event = @user.events.build(event_params)
+      #event.users = current_user
+       if event.save  
           redirect_to user_path(@user)
-          #format.json { render :show, status: :created, location: @post }
        else
           render :new
-          #format.json { render json: @post.errors, status: :unprocessable_entity }
        end
-      #event = Event.create(event_params)
-      #redirect_to event
     end
   
     private
