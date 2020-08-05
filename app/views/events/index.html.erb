@@ -1,0 +1,24 @@
+<html>
+  <body>
+    <h1>Created Events</h1>
+      <%= button_to 'Home', user_path(@user) %><br>
+      <div id="login">
+         <ul>
+           <% @event.collect do |e| %> 
+            <h2><strong><%="Event:"%></strong></h2>
+            <li><%= link_to e.name, user_event_path(@user, e) %></li><br>
+            <li><strong><%="Date:"%></strong><br>
+            <%= e.date %></li><br>
+            <li><strong><%="Location:"%></strong><br>
+            <%= e.city %></li><br>
+            <li><strong><%="Artist:"%></strong><br>
+            <%= e.artist %></li><br>
+            <li><strong><%="Venue:"%></strong><br>
+            <%= e.venue %></li><br>
+            <li><strong><%="Comments:"%></strong>
+            <%= e.comments.count %></li><br>
+            <% end %>
+         </ul>
+      </div>
+  </body>
+</html>

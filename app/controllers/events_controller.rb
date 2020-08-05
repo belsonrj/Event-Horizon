@@ -3,12 +3,13 @@ class EventsController < ApplicationController
     #before_action :set_event, only: [:show, :edit, :update, :destroy]
 
     def show
-      #@event = Event.find(params[:id])
+      @event = Event.find(params[:id])
       @user = current_user
-      @event = Event.all
+      #@event = Event.all
     end
   
     def index
+      @user = current_user
       @event = Event.all
     end
   

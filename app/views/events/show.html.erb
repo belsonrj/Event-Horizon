@@ -1,7 +1,35 @@
-<h3>
-  <ul>
-    <%= @event.each do |e| %>
-      <li><%= e.name %></li>
-    <% end %>
-  </ul>
-</h3>
+<html>
+<%= button_to 'Home', user_path(@user) %><br>
+
+
+  <div id=login>
+    <h1 id="title"><%= @event.name %></h1>
+    <h2><strong><%="Date:"%></strong></h2>
+    <h3><%= @event.date %></h3>
+    <h2><strong><%="City:"%></strong></h2>
+    <h3><%= @event.city %></h3>
+    <h2><strong><%="Artist:"%></strong></h2>
+    <h3><%= @event.artist %></h3>
+    <h2><strong><%="Venue:"%></strong></h2>
+    <h3><%= @event.venue %></h3>
+  
+  <h1 id="title">Comments:</h1>
+    <ul>
+      <% @event.comments.each do |comment| %>
+        <li><strong><%= comment.user.username %>:</strong> <%= comment.content %></li>
+      <% end %>
+    </ul>
+</div>
+
+<h1 id="title">Create A New Comment:</h1>
+
+<%= form_for @event.comments.build do |f|%>
+  <%= f.hidden_field :event_id %>
+  <%= f.hidden_field :user_id %>
+  <%= f.text_area :content %>
+
+<br>
+
+  <%= f.submit %>
+<% end %>
+</html>
