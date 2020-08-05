@@ -1,6 +1,7 @@
 class ArtistsController < ApplicationController
   before_action :set_artist, only: [:show, :edit, :update, :destroy]
   before_action :current_user 
+  #before_action :logged_in_user, only: [:edit, :update, :delete]
   #skip_forgery_protection
 
   # GET /artists
@@ -110,4 +111,5 @@ class ArtistsController < ApplicationController
     def venue_params
       params.require(:venue).permit(:name, :locale)
     end
+
 end

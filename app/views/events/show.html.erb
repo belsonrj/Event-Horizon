@@ -5,7 +5,7 @@
   <div id=login>
     <h1 id="title"><%= @event.name %></h1>
     <h2><strong><%="Date:"%></strong></h2>
-    <h3><%= @event.date %></h3>
+    <h3><%= @event.date.strftime('%a, %d %b %Y') %></h3>
     <h2><strong><%="City:"%></strong></h2>
     <h3><%= @event.city %></h3>
     <h2><strong><%="Artist:"%></strong></h2>
@@ -17,8 +17,8 @@
     <ul>
       <% @event.comments.each do |comment| %>
         <li><strong><%= comment.user.username %>:</strong> <%= comment.content %></li>
-         <%= time_ago_in_words(comment.created_at) %> ago
-        
+        <em><%= time_ago_in_words(comment.created_at) %> ago </em>
+        __________________
       <% end %>
     </ul>
 </div>

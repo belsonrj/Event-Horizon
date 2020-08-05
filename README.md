@@ -23,12 +23,12 @@ License: This project is licensed under the MIT License
 
 
 
-    • Include a many-to-many relationship implemented with has_many :through associations. The join table must include a user-submittable attribute — that is to say, some attribute other than its foreign keys that can be submitted by the app's user (we discussed maybe changing artist_venues into events.)
+    [x]• Include a many-to-many relationship implemented with has_many :through associations. The join table must include a user-submittable attribute — that is to say, some attribute other than its foreign keys that can be submitted by the app's user (we discussed maybe changing artist_venues into events.)
 
     [x]• Your models must include reasonable validations for the simple attributes. You don't need to add every possible validation or duplicates, such as presence  and a minimum length, but the models should defend against invalid data. (use validates AR methods on models)
 
     [x]• Your forms should correctly display validation errors. (we talked about how to build this out using partials)
 
-    • You must include a nested new route with form that relates to the parent resource
+    [x]• You must include a nested new route with form that relates to the parent resource
 
     [x]• You must include at least one class level ActiveRecord scope method. a. Your scope method must be chainable, meaning that you must use ActiveRecord Query methods within it (such as .where and .order) rather than native ruby methods (such as #find_all or #sort).
