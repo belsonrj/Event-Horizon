@@ -17,7 +17,7 @@
     <ul>
       <% @event.comments.each do |comment| %>
         <li><strong><%= comment.user.username %>:</strong> <%= comment.content %></li>
-        <em><%= time_ago_in_words(comment.created_at) %> ago </em>
+        <em><%= time_ago_in_words(comment.created_at) %> ago </em><br>
         __________________
       <% end %>
     </ul>

@@ -1,7 +1,7 @@
 class ArtistsController < ApplicationController
   before_action :set_artist, only: [:show, :edit, :update, :destroy]
-  before_action :current_user 
-  #before_action :logged_in_user, only: [:edit, :update, :delete]
+  before_action :current_user
+  #before_action :logged_in?, only: [:edit, :update, :delete, :new]
   #skip_forgery_protection
 
   # GET /artists
