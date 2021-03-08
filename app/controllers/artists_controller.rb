@@ -1,8 +1,6 @@
 class ArtistsController < ApplicationController
   before_action :set_artist, only: [:show, :edit, :update, :destroy]
   before_action :current_user
-  #before_action :logged_in?, only: [:edit, :update, :delete, :new]
-  #skip_forgery_protection
 
   # GET /artists
   # GET /artists.json
@@ -22,6 +20,11 @@ class ArtistsController < ApplicationController
   def new
     @user = current_user
     @artist = Artist.new
+    if params[:user_id] && !User.exists?(params[:user_id])
+      redirect_to users_path(@user), alert: "No Artist Found"
+    else
+      @artist = Artist.new(user_id: params[:user_id])
+    end
   end
 
   # GET /artists/1/edit
@@ -72,7 +75,6 @@ class ArtistsController < ApplicationController
 
   def met
     @user = current_user
-    #@artist_met = current_user.artists.select {|artist| artist.met == true} 
     @artist_met = current_user.artists.artists_met
   end
 
@@ -95,10 +97,6 @@ class ArtistsController < ApplicationController
   
 
   private
-
-    #def current_user
-    #  User.find_by(id: session[:user_id])
-    #end
     
     def set_artist
       @artist = Artist.find(params[:id])

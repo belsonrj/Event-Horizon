@@ -27,6 +27,10 @@ class UsersController < ApplicationController
       end
   end
 
+  def met_most
+    @user = User.met_most
+  end
+
   private
  
     def set_user

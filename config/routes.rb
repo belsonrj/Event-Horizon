@@ -7,9 +7,9 @@ Rails.application.routes.draw do
   resources :users
   resources :users do
     resources :artists, only: [:index, :show, :create, :destroy, :new]
-    resources :venues, only: [:index, :show, :create, :destroy]
+    resources :venues, only: [:index, :show, :create, :destroy, :new]
     resources :events, only: [:index, :show, :create, :destroy]
-    resources :comments, only: [:index, :show, :create, :destroy]
+    resources :comments, only: [:index, :show, :create, :destroy, :new]
   end
 
   get '/' => 'sessions#welcome'

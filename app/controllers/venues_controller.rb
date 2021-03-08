@@ -20,6 +20,11 @@ class VenuesController < ApplicationController
   def new
     @user = current_user
     @venue = Venue.new
+    if params[:user_id] && !User.exists?(params[:user_id])
+      redirect_to users_path(@user), alert: "No Venue Found"
+    else
+      @artist = Venue.new(user_id: params[:user_id])
+    end
   end
 
   # GET /venues/1/edit
