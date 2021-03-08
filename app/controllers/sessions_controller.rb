@@ -1,6 +1,4 @@
 class SessionsController < ApplicationController
-  #skip_before_action :authorized, only: [:new, :create, :welcome]
-  #before_action :set_user
   skip_forgery_protection
   
   def welcome
@@ -31,7 +29,6 @@ class SessionsController < ApplicationController
         
          redirect_to user_path(@user)
       else
-        #format.html { render 'sessions/welcome', notice: "Email or password is invalid" }
         render 'sessions/welcome'
       end
     end

@@ -4,40 +4,40 @@
     <h1 id=title>Top Rated Venues</h1>
     <%= button_to "Home", user_path(@user) %>
 
-    <div style="width: 100%; margin: 0 auto; overflow: auto; height: 600px">
-      <div style="width: 200px; float: left;">  
+  <div style="width: 100%; margin: 0 auto; overflow: auto; height: 600px">
+    <div style="width: 200px; float: left;">  
        
        <h2 id=top>Layout:</h2>
        <% @venue_layout.sort_by(&:layout).reverse.each do |venue| %>
         <li><%= link_to venue.name, user_venue_path(@user, venue) %> <%=venue.layout%> </li>
        <% end %>
-      </div>
+    </div>
 
-      <div style="width: 200px; float: left;">  
+    <div style="width: 200px; float: left;">  
     
        <h2 id=top>Sound:</h2>
        <% @venue_sound.sort_by(&:sound).reverse.each do |venue| %>
         <li><%= link_to venue.name, user_venue_path(@user, venue) %> <%=venue.sound%> </li>
        <% end %>
-      </div>
+    </div>
     
 
-      <div style="width: 200px; float: left;">  
+    <div style="width: 200px; float: left;">  
         <h2 id=top>Comfort:</h2>
        <% @venue_comfort.sort_by(&:comfort).reverse.each do |venue| %>
         <li><%= link_to venue.name, user_venue_path(@user, venue) %> <%=venue.comfort%> </li>
        <% end %>
-      </div>
+    </div>
     
    
-      <div style="width: 200px; float: left;">  
+    <div style="width: 200px; float: left;">  
         <h2 id=top>Prices:</h2>
        <% @venue_prices.sort_by(&:prices).reverse.each do |venue| %>
         <li><%= link_to venue.name, user_venue_path(@user, venue) %> <%=venue.prices%> </li>
        <% end %>
       
-      </div>
-    </div>  
+    </div>
+  </div>  
 
   </body>
 </html>

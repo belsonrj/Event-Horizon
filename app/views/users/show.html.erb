@@ -1,46 +1,45 @@
 <!DOCTYPE html>
 <html>
   <body>
-     <p><%= button_to "Add An Upcoming Event", :controller => 'events', :action => 'new' %></p>
-     <p><%= button_to "Show Upcoming Events", :controller => 'events', :action => 'index' %></p>
+    <p><%= button_to "Add An Upcoming Event", :controller => 'events', :action => 'new' %></p>
+    <p><%= button_to "Show Upcoming Events", :controller => 'events', :action => 'index' %></p>
 
-  <div style="width: 100%; overflow: auto; height: 500px">
+    <div style="width: 100%; overflow: auto; height: 500px">
     <div style="width: 500px; float: left;">       
     
-    <%= button_to "Artists You've Met", artist_action_path(@user), method: :get %>
+      <%= button_to "Artists You've Met", artist_action_path(@user), method: :get %>
    
-    <h2 id=top>Saved Artists:</h2> 
+      <h2 id=top>Saved Artists:</h2> 
       <p> Artist Count: <%= @user.artists.count %></P>
 
-       <%= button_to "Add Artist", :controller => 'artists', :action => 'new' %>
-    <ul id=list>
-       <% @user.artists.order_artists.each do |artist| %>
-        <li><%= link_to artist.name, user_artist_path(@user, artist) %></li>
+      <%= button_to "Add Artist", :controller => 'artists', :action => 'new' %>
+      <ul id=list>
+        <% @user.artists.order_artists.each do |artist| %>
+          <li><%= link_to artist.name, user_artist_path(@user, artist) %></li>
 
-      <% end %>
-    </ul>     
+        <% end %>
+      </ul>     
     </div>
 
     <div style="margin-left: 420px;">     
 
-    <%= button_to "Top Rated Venues", venue_action_path(@user), method: :get %>
+        <%= button_to "Top Rated Venues", venue_action_path(@user), method: :get %>
     
-    <h2 id=top>Saved Venues:</h2>
-    <p> Venue Count: <%= @user.venues.count %></P>
+        <h2 id=top>Saved Venues:</h2>
+        <p> Venue Count: <%= @user.venues.count %></P>
 
-     <%= button_to "Add Venue", :controller => 'venues', :action => 'new' %>
-    <ul id=list>
-      <% @user.venues.order_venues.each do |venue| %>
-        <li><%= link_to venue.name, user_venue_path(@user, venue) %></li>
+        <%= button_to "Add Venue", :controller => 'venues', :action => 'new' %>
+        <ul id=list>
+        <% @user.venues.order_venues.each do |venue| %>
+          <li><%= link_to venue.name, user_venue_path(@user, venue) %></li>
 
-      <% end %>
-    </ul>    </div>
+        <% end %>
+        </ul>    
+    </div>
     
-    
-  
-     </div>
-  <br>
-  <%= button_to "Logout", :controller => 'sessions', :action => 'destroy' %>
+    </div>
+    <br>
+    <%= button_to "Logout", :controller => 'sessions', :action => 'destroy' %>
 
   
   </body>

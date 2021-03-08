@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
   before_action :logged_in?
   before_action :set_user, only: [:show, :edit, :update, :destroy]
-  #skip_forgery_protection
 
   # GET /users/1
   # GET /users/1.json
