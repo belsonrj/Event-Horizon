@@ -1,22 +1,30 @@
 <!DOCTYPE html>
 <html>
 
-<h1 id=app>Welcome to Event-Horizon!</h1>
-<h2 id=top>Your Handy Event Indexer</h2>
 <body>
+<h1 id="app">Welcome to Event-Horizon!</h1>
 
-
-  <div id=login>
-  <h1>Login</h1>
-     <%= form_tag '/login' do %>
-     <%= label_tag :username%>
-     <%= text_field_tag :username %> <br>
-     <br>
-     <%= label_tag :password%>
-     <%= password_field_tag :password%> <br>
-     <br>
-     <%= submit_tag "Login"%>
-  <%end%>
+  <div class="login-box">
+  <h1 id="title">Login</h1>
+    <div class="user-box">
+      <%= form_tag '/login' do %>
+      <%= label_tag :username%>
+      <%= text_field_tag :username %> <br>
+    </div>
+    <br>
+    <div class="user-box">
+      <%= label_tag :password%>
+      <%= password_field_tag :password%> <br>
+    </div>
+      <br>
+    <a href="#">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <%= submit_tag "Login", {:class => "button"}%>
+      <%end%>
+    </a>
   <br>
   <%= link_to('Log in with GITHUB!', '/auth/github') %>
   
@@ -25,3 +33,4 @@
     
   </body>
 </html>
+

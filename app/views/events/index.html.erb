@@ -1,7 +1,7 @@
 <html>
   <body>
     <h1 id="title">Created Events</h1>
-      <%= button_to 'Home', user_path(@user) %><br>
+      <%= button_to 'Home', user_path(@user), {:class => "button"} %><br>
       <div id="login">
          <ul>
            <% @event.each.index_by do |e| %> 

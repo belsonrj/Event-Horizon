@@ -1,9 +1,9 @@
 <p id="notice"><%= notice %></p>
 <h1 id="title"><%= @venue.name %></h1>
 
-<%= link_to 'Edit', edit_venue_path(@venue) %> |
-<%= link_to "Delete", venue_destroy_path(id: @venue.id) %> |
-<%= link_to 'Home', user_path(@user) %>
+<%= link_to 'Edit', edit_venue_path(@venue), {:class => "button"} %> |
+<%= link_to "Delete", venue_destroy_path(id: @venue.id), {:class => "button"} %> |
+<%= link_to 'Home', user_path(@user), {:class => "button"} %>
 
 <h2>Locale:</h2>
 <h3 id="show"><%= @venue.locale %>
@@ -22,9 +22,9 @@
 <br>
 
 <h1 id="title">Artists You've Seen At This Venue:</h1>
-    <ul id=subjects>
+    <ol id=subjects>
       <% @venue.artists.each do |artist| %>
-        <%= link_to artist.name, user_artist_path(@user, artist) %><br>
+      <li><%= link_to artist.name, user_artist_path(@user, artist) %></li>
         
       <% end %>
-    </ul>   
+    </ol>   
