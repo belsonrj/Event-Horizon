@@ -4,28 +4,56 @@
 <body>
 <h1 id="app">Welcome to Event-Horizon!</h1>
 
-  <div class="login-box">
-    <div class="user-box">
-      <%= form_tag '/login' do %>
-      <%= label_tag :username%><br><br>
-      <%= text_field_tag :username %>
-    </div>
-    <br>
-    <div class="user-box">
-      <%= label_tag :password%><br><br>
-      <%= password_field_tag :password%>
-    </div>
-    <a href="#">
-      <%= submit_tag "Login", {:class => "button"}%>
-      <%end%>
-    </a>
-  <br>
-  <br>
-  <%= link_to('Log in with GITHUB!', '/auth/github') %>
-  
-    <p>New user? <%= link_to "Sign up now!", signup_path %></p>
-  </div>
-    
-  </body>
-</html>
 
+  
+
+  <div class="wrap">
+    <label for="form_switch">Click here to Sign Up!</label>
+        <input type="checkbox" id="form_switch">
+    
+    <div class="flipcard">
+	    <div class="flipcard-inner">
+        <div class="flipcard-front">
+          <div class="log-in">
+            <%= form_tag '/login' do %>
+            <h3><%= label_tag :username%></h3>
+            <%= text_field_tag :username %>
+          <br>
+            <h3><%= label_tag :password%><h3>
+            <%= password_field_tag :password%>
+          <br>
+          <br>
+          <a href="#">
+            <%= submit_tag "Login", {:class => "button"}%>
+            <%end%>
+          </a>
+          <br>
+          <br>
+            <%= link_to('Log in with GITHUB!', '/auth/github') %>
+            <br>
+          </div>
+        </div>
+      <div class="flipcard-back">
+        <div class="log-in">
+          <h2>Join Event-Horizon!</h2>
+          <%= form_tag '/signup' do %>
+          <div>
+            <h3><%= label_tag :username%></h3>
+            <%= text_field_tag :username %>
+          </div>
+          <div>
+            <h3><%= label_tag :password%></h3>
+            <%= password_field_tag :password%>
+          </div>
+          <br>
+          <br>
+          <a href="#">
+            <%= submit_tag "Sign Up", {:class => "button"}%>
+            <% end %>
+          </a>
+        </div>
+     </div>
+    </div>
+  </div>
+</body>
+</html>
