@@ -86,7 +86,6 @@ class VenuesController < ApplicationController
     @user = current_user
 
     @venue_layout = current_user.venues.order_by_layout
-    #@venue_layout = current_user.venues.select {|venue| venue.layout >= 4}
     @venue_sound = current_user.venues.order_by_sound
     @venue_comfort = current_user.venues.order_by_comfort
     @venue_prices = current_user.venues.order_by_prices

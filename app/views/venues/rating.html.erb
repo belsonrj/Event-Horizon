@@ -10,7 +10,7 @@
        <h2 id=top>Layout:</h2>
        <ol id="list">
           <% @venue_layout.sort_by(&:layout).reverse.each do |venue| %>
-            <li><%= link_to venue.name, user_venue_path(@user, venue) %> <%=venue.layout%> </li>
+            <li><%= link_to venue.name, user_venue_path(@user, venue) %> </li>
           <% end %>
        </ol>
     </div>
@@ -20,7 +20,7 @@
        <h2 id=top>Sound:</h2>
        <ol id="list">
           <% @venue_sound.sort_by(&:sound).reverse.each do |venue| %>
-            <li><%= link_to venue.name, user_venue_path(@user, venue) %> <%=venue.sound%> </li>
+            <li><%= link_to venue.name, user_venue_path(@user, venue) %> </li>
           <% end %>
        </ol>
     </div>
@@ -30,7 +30,7 @@
       <h2 id=top>Comfort:</h2>
       <ol id="list">
        <% @venue_comfort.sort_by(&:comfort).reverse.each do |venue| %>
-        <li><%= link_to venue.name, user_venue_path(@user, venue) %> <%=venue.comfort%> </li>
+        <li><%= link_to venue.name, user_venue_path(@user, venue) %> </li>
        <% end %>
       </ol>
     </div>
@@ -40,7 +40,7 @@
       <h2 id=top>Prices:</h2>
       <ol id="list">
        <% @venue_prices.sort_by(&:prices).reverse.each do |venue| %>
-        <li><%= link_to venue.name, user_venue_path(@user, venue) %> <%=venue.prices%> </li>
+        <li><%= link_to venue.name, user_venue_path(@user, venue) %> </li>
        <% end %>
       </ol>
     </div>

@@ -5,26 +5,21 @@
 <h1 id="app">Welcome to Event-Horizon!</h1>
 
   <div class="login-box">
-  <h1 id="title">Login</h1>
     <div class="user-box">
       <%= form_tag '/login' do %>
-      <%= label_tag :username%>
-      <%= text_field_tag :username %> <br>
+      <%= label_tag :username%><br><br>
+      <%= text_field_tag :username %>
     </div>
     <br>
     <div class="user-box">
-      <%= label_tag :password%>
-      <%= password_field_tag :password%> <br>
+      <%= label_tag :password%><br><br>
+      <%= password_field_tag :password%>
     </div>
-      <br>
     <a href="#">
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
       <%= submit_tag "Login", {:class => "button"}%>
       <%end%>
     </a>
+  <br>
   <br>
   <%= link_to('Log in with GITHUB!', '/auth/github') %>
   

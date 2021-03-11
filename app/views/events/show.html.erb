@@ -2,8 +2,8 @@
 <%= button_to 'Home', user_path(@user), {:class => "button"} %><br>
 
 
-  <div id=login>
-    <h1 id="title"><%= @event.name %></h1>
+  <div class="box">
+    <h1><%= @event.name %></h1>
     <h2><strong><%="Date:"%></strong></h2>
     <h3><%= @event.date.strftime('%a, %d %b %Y') %></h3>
     <h2><strong><%="City:"%></strong></h2>
@@ -22,16 +22,16 @@
       <% end %>
     </ul>
 </div>
+<div class="box">
+  <h1>Create A New Comment:</h1>
 
-<h1 id="title">Create A New Comment:</h1>
-
-<%= form_for @event.comments.build do |f|%>
-  <%= f.hidden_field :event_id %>
-  <%= f.hidden_field :user_id %>
-  <%= f.text_area :content %>
-
-<br>
+  <%= form_for @event.comments.build do |f|%>
+    <%= f.hidden_field :event_id %>
+    <%= f.hidden_field :user_id %>
+    <%= f.text_area :content %>
+  <br>
 
   <%= f.submit %>
-<% end %>
+  <% end %>
+</div>
 </html>

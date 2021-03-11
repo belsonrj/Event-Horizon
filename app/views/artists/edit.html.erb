@@ -1,35 +1,40 @@
-<h1>Edit Artist:</h1>
-<h1><%= @artist.name %></h1>
-<br />
-
-<%= form_for(@artist) do |f| %>
-  <%= f.label "Name" %> <br />
-  <%= f.text_field :name %> <br />
-  <%= f.label "Genre" %> <br />
-  <%= f.text_field :genre %> <br />
-  <%= f.label "Times Seen" %> <br />
-  <%= f.select :times_seen, (1..99) %> <br>
-  <%= f.label "Met?" %> <br>
-  <%= f.check_box :met %> <br>
-
-  <br>
-  <h3>Venue attended:</h3>
-  <div class="row">
-    <%= f.collection_check_boxes :venue_ids, @user.venues.all, :id, :name %>
-    <%= f.fields_for :venues, @artist.venues.build do |venue_fields| %> <br>
-
-    <% end %>
+<h1 id="title">Edit Artist:</h1>
+<h1 id="title"><%= @artist.name %></h1>
+<hr>
+<div class="box">
+  <div>
+    <%= form_for(@artist) do |f| %>
+    <h2><%= f.label "Name" %></h2><br>
+    <%= f.text_field :name %> <br>
+    <h2><%= f.label "Genre" %></h2><br>
+    <%= f.text_field :genre %> <br>
+    <h2><%= f.label "Times Seen" %></h2><br>
+    <%= f.select :times_seen, (1..99) %><br>
+    <h2><%= f.label "Met?" %></h2><br>
+    <%= f.check_box :met %> <br>
   </div>
-  <p>
-    <strong><%= f.label "Create a New Venue:" %> <br></strong>
-    <br>
-    <%= f.label "Venue Name:" %> <br>
-    <input type="text" id="name" name="venue[name]" /> <br>
-    <%= f.label "Locale:" %> <br>
-    <input type="text" id="locale" name="venue[locale]" /> <br>
-  
-  </p>
-  <br>
-    <%= f.submit %>
+<hr>
+  <div>
+    <h3><%= f.label "Create a New Venue:" %></h3>
+    <h2><%= f.label "Venue Name:" %></h2>
+    <input type="text" id="name" name="venue[name]" /><br>
+    <h2><%= f.label "Locale:" %></h2>
+    <input type="text" id="locale" name="venue[locale]" /><br>
+  </div>
+</div>
+
+<div class="box">
+  <h2>Venue attended:</h2>
+    <div>
+        <%= f.collection_check_boxes(:venue_ids, @user.venues.all, :id, :name) do |v| %>
+          <p><%= v.check_box + v.text %></p>
+        <% end %>
+        <%= f.fields_for :venues, @artist.venues.build do |venue_fields| %>
+        <% end %>
+    </div>
+</div>
+<div class="button-at-top">
+    <%= f.submit :class => "button" %>
     <% end %>
+</div>
   

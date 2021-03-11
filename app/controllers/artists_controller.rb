@@ -43,6 +43,7 @@ class ArtistsController < ApplicationController
     @user.artists << @artist
 
     if !params["venue"]["name"].empty?
+      @venue.save
       @artist.venues << @venue
       @user.venues << @venue
     end
@@ -78,11 +79,11 @@ class ArtistsController < ApplicationController
     @artist_met = current_user.artists.artists_met
   end
 
-  def delete
-    artist = Artist.find(params[:id])
-    venues = artist.venues.find(params[:venue_id])
-    artist.venues.delete(params[:venue_id])
-  end
+  #def delete
+  #  artist = Artist.find(params[:id])
+  #  venues = artist.venues.find(params[:venue_id])
+  #  artist.venues.delete(params[:venue_id])
+  #end
 
 
   # DELETE /artists/1
@@ -92,6 +93,7 @@ class ArtistsController < ApplicationController
     @artist = Artist.find(params[:id])
     @artist.destroy
     redirect_to user_path(@user)
+
   end
 
   

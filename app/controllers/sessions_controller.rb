@@ -48,7 +48,4 @@ class SessionsController < ApplicationController
     request.env['omniauth.auth']
   end
   
-  #def set_user
-  #  @user = User.find_by
-  #end
 end

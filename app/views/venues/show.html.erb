@@ -1,30 +1,36 @@
 <p id="notice"><%= notice %></p>
-<h1 id="title"><%= @venue.name %></h1>
 
-<%= link_to 'Edit', edit_venue_path(@venue), {:class => "button"} %> |
-<%= link_to "Delete", venue_destroy_path(id: @venue.id), {:class => "button"} %> |
-<%= link_to 'Home', user_path(@user), {:class => "button"} %>
-
-<h2>Locale:</h2>
-<h3 id="show"><%= @venue.locale %>
-<h2>Venue Type:</h2>
-<h3 id="show"><%= @venue.venue_type %>
-<h2>Layout:</h2>
-<h3 id="show"><%= @venue.layout %>
-<h2>Sound:</h2>
-<h3 id="show"><%= @venue.sound %>
-<h2>Comfort:</h2>
-<h3 id="show"><%= @venue.comfort %>
-<h2>Prices:</h2>
-<h3 id="show"><%= @venue.prices %>
-<h2>Venue Comments:</h2>
-<h3 id="show"><%= @venue.content %></h3>
+<div>
+  <%= link_to 'Edit', edit_venue_path(@venue), {:class => "button"} %> |
+  <%= link_to "Delete", venue_destroy_path(id: @venue.id), {:class => "button"} %> |
+  <%= link_to 'Home', user_path(@user), {:class => "button"} %>
+</div>
 <br>
+<hr>
+<h1 id="title"><%= @venue.name %></h1>
+<div class="box">
+  <h2>Locale:</h2>
+  <h3><%= @venue.locale %>
+  <h2>Venue Type:</h2>
+  <h3><%= @venue.venue_type %>
+  <h2>Layout:</h2>
+  <h3><%= @venue.layout %>
+  <h2>Sound:</h2>
+  <h3><%= @venue.sound %>
+  <h2>Comfort:</h2>
+  <h3><%= @venue.comfort %>
+  <h2>Prices:</h2>
+  <h3><%= @venue.prices %>
+  <h2>Venue Comments:</h2>
+  <h3><%= @venue.content %></h3>
+</div>
 
-<h1 id="title">Artists You've Seen At This Venue:</h1>
+<div class="box">
+  <h3 id="app">Artists For This Venue:</h3>
     <ol id=subjects>
       <% @venue.artists.each do |artist| %>
       <li><%= link_to artist.name, user_artist_path(@user, artist) %></li>
         
       <% end %>
-    </ol>   
+    </ol>
+</div>   

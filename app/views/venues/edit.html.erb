@@ -1,44 +1,49 @@
-<h1>Edit Venue:</h1>
-<h1><%= @venue.name %></h1>
-<br />
+<h3 id="app">Edit Venue:</h3>
+<h1 id="title"><%= @venue.name %></h1>
+<hr>
 
-<%= form_for(@venue) do |f| %>
-  <%= f.label "Name:" %> <br>
-  <%= f.text_field :name %> <br>
-  <%= f.label "Locale:" %> <br>
-  <%= f.text_field :locale %> <br>
-  <%= f.label "Venue Type:" %> <br>
-  <%= f.select :venue_type, [ nil, 'Bar', 'Small', 'Medium', 'Large', 'Arena', 'Festival', 'Amphitheater', 'Pavillion', 'Outdoor', 'Theatre']%><br>
-  <%= f.label "Layout" %> <br>
-  <%= f.select :layout, [ nil, '1', '2', '3', '4', '5']%><br>
-  <%= f.label "Sound" %> <br>
-  <%= f.select :sound, [ nil, '1', '2', '3', '4', '5']%><br>
-  <%= f.label "Comfort" %> <br>
-  <%= f.select :comfort, [ nil, '1', '2', '3', '4', '5']%><br>
-  <%= f.label "Prices" %> <br>
-  <%= f.select :prices, [ nil, '1', '2', '3', '4', '5']%><br>
-  <%= f.label "Venue Comments" %> <br>
-  <%= f.text_area :content %><br>
+  <div class="box">
+    <div>
+    <%= form_for(@venue) do |f| %>
+      <h2><%= f.label "Name:" %></h2><br>
+      <%= f.text_field :name %> <br>
+      <h2><%= f.label "Locale:" %></h2><br>
+      <%= f.text_field :locale %> <br>
+      <h2><%= f.label "Venue Type:" %></h2><br>
+      <%= f.select :venue_type, [ nil, 'Bar', 'Small', 'Medium', 'Large', 'Arena', 'Festival', 'Amphitheater', 'Pavillion', 'Outdoor', 'Theatre']%><br>
+      <h2><%= f.label "Layout" %></h2><br>
+      <%= f.select :layout, [ nil, '1', '2', '3', '4', '5']%><br>
+      <h2><%= f.label "Sound" %></h2><br>
+      <%= f.select :sound, [ nil, '1', '2', '3', '4', '5']%><br>
+      <h2><%= f.label "Comfort" %></h2><br>
+      <%= f.select :comfort, [ nil, '1', '2', '3', '4', '5']%><br>
+      <h2><%= f.label "Prices" %></h2><br>
+      <%= f.select :prices, [ nil, '1', '2', '3', '4', '5']%><br>
+      <h2><%= f.label "Venue Comments" %></h2><br>
+      <%= f.text_area :content %><br>
+  </div>
+  <hr>
+    <div>
+      <h3><%= f.label "Create New Artist:" %></h3><br>
+      <h2><%= f.label "Artist Name:" %></h2><br>
+      <input type="text" id="name" name="artist[name]" /> <br>
+      <h2><%= f.label "Genre:" %></h2><br>
+      <input type="text" id="locale" name="artist[genre]" /> <br>
+    </div>
+  </div>
 
-  <br>
-  <h3>Performance by:</h3>
-  
-  <%= f.collection_check_boxes :artist_ids, @user.artists.all.sort_by(&:name), :id, :name %> <br>
-  <br>
-  <%= f.fields_for :artists, @venue.artists.build do |artist_fields| %> <br>
-    
-  <% end %>
-  <p>
-    <strong><%= f.label "Create New Artist:" %> <br></strong>
-    <br>
-    <%= f.label "Artist Name:" %> <br>
-    <input type="text" id="name" name="artist[name]" /> <br>
-    <%= f.label "Genre:" %> <br>
-    <input type="text" id="locale" name="artist[genre]" /> <br>
-  
-  </p>
+  <div class="box">
+    <div>
+    <h3>Performance by:</h3>
+    <%= f.collection_check_boxes(:artist_ids, @user.artists.all.sort_by(&:name), :id, :name) do |a| %>
+        <p><%= a.check_box + a.text %></p>
+        <% end %>
+    <%= f.fields_for :artists, @venue.artists.build do |artist_fields| %>
+    <% end %>
+    </div>
+  </div>
 
-
-  <%= f.submit %>
-<% end %>
-
+  <div class="button-at-top">
+    <%= f.submit :class => "button"%>
+    <% end %>
+  </div>

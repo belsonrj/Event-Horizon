@@ -1,26 +1,23 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Event-Horizon</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
+    <head>
+        <title>Event-Horizon</title>
+        <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+        <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+        <%= csrf_meta_tags %>
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Redressed&display=swap" rel="stylesheet">
+    </head>
 
-<body id="library">
-    <div id = "container">
-         
-    <div id = "header">
-            
-        <% if logged_in? %>
-            <h1 id="app">Event-Horizon</h1>
-            <h2 id="top">Welcome, <%= @user.username.upcase%></h3>
-        <%end%>
-    </div>
+    <body id="library">
+        <div id = "container">
+            <div id = "header">
+                <% if logged_in? %>
+                <h1 id="app">Event-Horizon</h1>
+                <%end%>
+        </div>
 
-
-<%= yield %>
-
-</body>
+        <%= yield %>
+    </body>
 </html>
 

@@ -1,24 +1,41 @@
 html {
-    height: 100%;
+    height: auto;
   }
   body {
     margin:0;
     padding:0;
-    font-family: sans-serif;
+    font-family: sans-serif, 'Redressed', cursive;
     background: linear-gradient(#141e30, #243b55);
   }
 
-a:link,
-a:active,
-a:hover,
+a:link{
+  color: rgb(65, 172, 111);
+  cursor: pointer;
+  position: relative;
+  border-radius: 3.75rem;
+  line-height: 2rem;
+  font-size: 1.5rem;
+  font-weight: 300;
+}
+
+a:hover{
+  color: rgb(183, 235, 27);
+  filter: drop-shadow(10px 10px 10px rgb(169, 241, 163));
+  cursor: pointer;
+  position: relative;
+  border-radius: 3.75rem;
+  line-height: 2rem;
+  font-size: 1.75rem;
+  font-weight: 300;
+}
 a:visited {
-    color: rgb(55, 122, 137);
-    cursor: pointer;
-	position: relative;
-	border-radius: 3.75rem;
-	line-height: 2rem;
-	font-size: 1.5rem;
-	font-weight: 300;
+  color: rgb(252, 7, 7);
+  cursor: pointer;
+  position: relative;
+  border-radius: 3.75rem;
+  line-height: 2rem;
+  font-size: 1.75rem;
+  font-weight: 300;
 }
 
 input {
@@ -31,24 +48,34 @@ p {
     font-size: 1.5rem;
 }
 
-h1#app {
-    text-align: center;
-    font-style: bold;
-    font-family: Brush Script MT, Brush Script Std, cursive
-    font-weight: 700;
-    background-image: linear-gradient(135deg, #647d93 0%, #40679d 60%, #246ed6 100%);
-    filter: drop-shadow(0 2px 2px rgb(0, 63, 102));
-    color: rgb(250, 246, 246);
-    border-radius: 2.75rem;
-    padding: 0.5rem 0.5rem;
-    border: 3px solid #012880;
+h1#app{
+  border: 10px double yellow;
+  border-radius: 10px;
+  text-align: center;
+  font-size: 6rem;
+  font-weight: 600;
+  font-family: Brush Script MT, Brush Script Std, cursive;
+  filter: drop-shadow(5px 5px 5px rgb(163, 212, 241));
+  margin-top: 0;
+}
+
+h3#app{
+  text-decoration: underline;
+  float: auto;
+  font-size: 3em;
+  font-weight: 400;
+  font-family: Brush Script MT, Brush Script Std, cursive;
+  filter: drop-shadow(0 5px 5px rgb(163, 212, 241));
+  margin-top: 0;
 }
 
 h1#title {
-    font: Helvetica;
+    font-family: Brush Script MT, Brush Script Std, cursive;
+    font-size: 3rem;
     text-align: center;
+    letter-spacing: 0.3em;
     background-image: linear-gradient(135deg, #5d6571 0%, #486c82 60%, #105578 100%);
-    filter: drop-shadow(0 2px 2px rgb(0, 63, 102));
+    filter: drop-shadow(0 5px 5px rgb(163, 212, 241));
     color: rgb(250, 246, 246);
     border-radius: 2.75rem;
     padding: 0.5rem 0.5rem;
@@ -66,14 +93,15 @@ h2#top {
 
 h3#show {
     font: Helvetica;
-    background-color: rgba(240, 231, 169, 0.918);
-    color: rgb(29, 38, 214);
+    background-color: rgba(169, 190, 240, 0.918);
+    color: rgb(20, 38, 233);
     border-radius: .5rem;
-    font-size: 30px;
+    width: 200px;
+    font-size: 25px;
 }
 
 div#container {
-    width: 860px;
+    width: 950px;
     margin: 0 auto;
     margin-left: 0 auto;
     margin-right: 0 auto;
@@ -81,7 +109,7 @@ div#container {
 
 div#header {
     text-align: center;
-    padding-bottom: 15px;
+    padding-bottom: 0px;
 }
 
 div#content {
@@ -125,6 +153,45 @@ ul#subjects li {
     padding-left: 5px;
 }
 
+.box {
+  background-color: rgba(71, 59, 88, 0.374);
+  border-style: outset;
+  border: 5px solid rgba(0, 7, 0, 0.626);
+  filter: drop-shadow(0 5px 5px rgb(163, 212, 241));
+  height: auto;
+  width: 400px;
+  float: left;
+  display: inline;
+  padding-left: 10px;
+  margin-top: 60px;
+  margin-right: 5px;
+  margin-left: 5px;
+}
+
+.box h2{
+  color: #0e2c64;
+  text-shadow: #041e4e;
+  font-weight: 600;
+  font-style: italic;
+  text-decoration: underline;
+}
+
+.box h3{
+  color: #1e033b;
+  border-style: groove;
+  padding: 10px;
+}
+
+.checkbox_container input{
+  display: inline;
+}
+
+.button-at-top {
+  position: absolute;
+  top: 20;
+  left: 100;
+}
+
 .button {
 	color: transparent;
 	background-image: linear-gradient(0deg, #EE82DA 0%, #FEFAFD 100%);
@@ -132,7 +199,7 @@ ul#subjects li {
 	background-clip: text;
 	filter: drop-shadow(0 2px 2px rgb(0, 63, 102));
 
-    cursor: pointer;
+  cursor: pointer;
 	position: relative;
 	padding: 1rem 1rem;
 	border-radius: 3.75rem;
@@ -183,7 +250,7 @@ button::after {
 
 .login-box {
     position: absolute;
-    top: 50%;
+    top: 55%;
     left: 50%;
     width: 400px;
     padding: 40px;

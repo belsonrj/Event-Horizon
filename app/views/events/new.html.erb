@@ -1,11 +1,8 @@
 <body>   
-<div id=login>
-    <h1>New Event:</h1>
-    <br>
+<div class="box">
+    <h3 id="app">New Event:</h3>
     <%= render partial: "users/form", locals: {user: @event} %>
         
-
-
         <%= form_with(model: [@user, @event], local: true) do |form| %>
             <% if @event.errors.any? %>
                 <div id="error_explanation">
@@ -22,20 +19,20 @@
                 </div>
                 <% end %>
         <div class="field">
-          <%= form.label :name %><br>
+          <h2><%= form.label :name %></h2><br>
           <%= form.text_field :name %><br>
-          <%= form.label :date %><br>
+          <h2><%= form.label :date %></h2><br>
           <%= form.date_field :date, as: :date, value: form.object.try(:strftime,"%m/%d/%Y"), class: 'form-control' %><br>
-          <%= form.label :city %><br>
+          <h2><%= form.label :city %></h2><br>
           <%= form.text_field :city %><br>
-          <%= form.label :artist %><br>
+          <h2><%= form.label :artist %></h2><br>
           <%= form.text_field :artist %><br>
-          <%= form.label :venue %><br>
+          <h2><%= form.label :venue %></h2><br>
           <%= form.text_field :venue %><br>
         </div>
 
         <div class="actions">
-           <%= form.submit %>
+           <%= form.submit :class => "button" %>
         </div>
         <% end %>
 </div>
