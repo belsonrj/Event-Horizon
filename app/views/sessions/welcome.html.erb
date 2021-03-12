@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-
+<%= render partial: "users/form", locals: {user: @user} %>
 <body>
 <h1 id="app">Welcome to Event-Horizon!</h1>
 
@@ -18,39 +18,38 @@
             <%= form_tag '/login' do %>
             <h3><%= label_tag :username%></h3>
             <%= text_field_tag :username %>
-          <br>
+            <br>
             <h3><%= label_tag :password%><h3>
             <%= password_field_tag :password%>
-          <br>
-          <br>
-          <a href="#">
-            <%= submit_tag "Login", {:class => "button"}%>
-            <%end%>
-          </a>
-          <br>
-          <br>
+            <br>
+            <br>
+            <a href="#">
+              <%= submit_tag "Login", {:class => "button"}%>
+              <%end%>
+            </a>
+            <br>
+            <br>
             <%= link_to('Log in with GITHUB!', '/auth/github') %>
             <br>
           </div>
         </div>
       <div class="flipcard-back">
         <div class="log-in">
-          <h2>Join Event-Horizon!</h2>
-          <%= form_tag '/signup' do %>
+          
+          <%= form_for(@user) do |f| %>
           <div>
-            <h3><%= label_tag :username%></h3>
-            <%= text_field_tag :username %>
-          </div>
-          <div>
-            <h3><%= label_tag :password%></h3>
-            <%= password_field_tag :password%>
+          <h3><%= f.label :username%></h3>
+            <%= f.text_field :username%>
           </div>
           <br>
+          <div>
+            <h3><%= f.label :password%></h3>
+            <%= f.password_field :password%>
+          </div>
+          
           <br>
-          <a href="#">
-            <%= submit_tag "Sign Up", {:class => "button"}%>
-            <% end %>
-          </a>
+            <%= f.submit "Sign Up", {:class => "button"} %>
+          <% end %>
         </div>
      </div>
     </div>
