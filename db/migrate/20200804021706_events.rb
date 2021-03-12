@@ -3,9 +3,9 @@ class Events < ActiveRecord::Migration[6.0]
     create_table :events do |t|
       t.string :name
       t.datetime :date
-      t.string :city
-      t.string :artist
-      t.string :venue
+      t.text :city
+      t.text :artist
+      t.text :venue
 
       t.timestamps
     end
