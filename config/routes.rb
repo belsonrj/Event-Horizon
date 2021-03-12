@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  #root to: 'application#home'
+  root to: 'sessions#welcome'
   resources :venues
   resources :artists
   resources :events
