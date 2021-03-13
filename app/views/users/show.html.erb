@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
 
-  <body>
+  <body class="content">
+    <div>
     <div float="left">
       <h2>Welcome, <%= @user.username.upcase%></h2>
       <%= button_to "Log Out", session_path(current_user.id), :method=>:delete, :class=>:destroy, :class => "button" %>
@@ -44,6 +45,7 @@
 
           <% end %>
         </ol>    
+    </div>
     </div>
   </body>
 </html>

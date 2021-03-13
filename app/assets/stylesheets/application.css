@@ -8,6 +8,13 @@ html body {
   background: linear-gradient(#414349, #98a0a9);
 }
 
+.content {
+  height: auto;
+  width: auto;
+  margin: 0;
+  padding: 0;
+}
+
 a:link{
   color: rgb(245, 247, 243);
 }
@@ -166,14 +173,14 @@ ul#subjects {
   width: 400px;
   float: left;
   display: inline;
-  padding: 10px;
+  padding: 15px;
   margin-top: 15px;
   margin-right: 5px;
   margin-left: 5px;
 }
 
 .box a:link{
-  color: rgb(245, 247, 243);
+  color: white;
   cursor: pointer;
   position: relative;
   border-radius: 3.75rem;
@@ -194,6 +201,10 @@ ul#subjects {
   font-size: 1.75rem;
   font-style: bold;
   text-decoration: underline;
+}
+
+.box a:visited{
+  color: white;
 }
 
 .box ol {
@@ -222,6 +233,11 @@ ul#subjects {
   padding: 10px;
 }
 
+.box h4{
+  color: silver;
+  font-size: 15px;
+}
+
 .checkbox_container input{
   display: inline;
 }
@@ -238,11 +254,11 @@ ul#subjects {
 	background-clip: text;
   -webkit-box-decoration-break: clone;
   box-decoration-break: clone;
-	filter: drop-shadow(0 2px 2px rgba(245, 245, 16, 0.776));
+	filter: drop-shadow(0 2px 2px rgba(247, 247, 245, 0.776));
 
   cursor: pointer;
 	position: relative;
-	padding: 1rem 1rem;
+	padding: 0.75rem 0.75rem;
 	border-radius: 1rem;
 	line-height: 0.5rem;
 	font-size: 1.75rem;
@@ -271,7 +287,7 @@ button::before {
 	border-radius: 100%;
 	
 	opacity: 0.7;
-	background-image: linear-gradient(-270deg, rgba(255,255,255,0.00) 0%, #FFFFFF 20%, #FFFFFF 80%, rgba(255,255,255,0.00) 100%);
+	background-image: linear-gradient(-270deg, rgba(255, 255, 255, 0.993) 0%, #FFFFFF 20%, #FFFFFF 80%, rgba(255, 255, 255, 0.986) 100%);
 }
 
 button::after {
@@ -288,7 +304,7 @@ button::after {
 	
 	filter: blur(1px);
 	opacity: 0.05;
-	background-image: linear-gradient(-270deg, rgba(255,255,255,0.00) 0%, #FFFFFF 20%, #FFFFFF 80%, rgba(255,255,255,0.00) 100%);
+	background-image: linear-gradient(-270deg, rgba(255, 255, 255, 0.993) 0%, #FFFFFF 20%, #FFFFFF 80%, rgba(255, 255, 255, 0.986) 100%);
 }
 
 
@@ -301,15 +317,26 @@ button::after {
     transform: translate(-50%, -50%);
     background: rgba(34, 32, 32, 0.5);
     box-sizing: border-box;
-    box-shadow: 0 15px 25px rgba(0,0,0,.6);
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.837);
     border-radius: 10px;
+  }
+
+  .login-box h1 {
+    margin: 0 0 30px;
+    padding: 0;
+    color: #fff;
+    text-align: center;
+    border: white;
+    border-bottom: 2px white;
+    border-right: 2px white;
   }
   
   .login-box h2 {
     margin: 0 0 30px;
     padding: 0;
     color: #fff;
-    text-align: center;
+    text-align: left;
+    text-decoration: overline;
   }
   
   .login-box .user-box {
@@ -360,6 +387,11 @@ button::after {
     letter-spacing: 4px
   }
   
+  .login-box a{
+    color: gold;
+    font-size: 1.25em;
+  }
+
   .login-box a:hover {
     background: #03e9f4;
     color: #fff;
@@ -449,72 +481,3 @@ button::after {
       bottom: 100%;
     }
   }
-
-
-
-.log-in{
-  border: 5px double yellow;
-  border-radius: 1.5em;
-  height: 300px;
-  background: linear-gradient(270deg, transparent, #03e9f4);
-  filter: drop-shadow(0 5px 5px rgb(77, 119, 144));
-  padding: 10px;
-}
-
-.log-in h3{
-  text-decoration: overline;
-}
-
-.log-in a:hover {
-  background: #03e9f4;
-  color: #fff;
-  border-radius: 5px;
-  box-shadow: 0 0 5px #03e9f4,
-              0 0 25px #03e9f4,
-              0 0 50px #03e9f4,
-              0 0 100px #03e9f4;
-}
-
-.wrap {
-    text-align: center;
-    border: 5px double yellow;
-    border-radius: 1.5em;
-    height: auto;
-    width: 350px;
-    margin: 50px auto;
-    background: linear-gradient(270deg, transparent, #03e9f4);
-}
-.flipcard{
-    background-color: transparent;
-    width : 350px;
-    height: auto;
-    perspective: 1000px;
-}
-.flipcard-inner{
-    position: relative;
-    width: 100%;
-    height: 100%;
-    text-align: center;
-    transition: transform 0.8s;
-    transform-style: preserve-3d;
-}
-.flipcard-front, .flipcard-back{
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    backface-visibility: hidden;
-}
-.flipcard-front{
-    color: rgb(0, 0, 0);
-}
-.flipcard-back{
-    background-color: #69d2e7;
-    transform: rotateY(180deg);
-}
-/*.flipcard:hover .flipcard-inner{
-    transform: rotateY(180deg);
-}*/
-
-input[type="checkbox"]:checked + .flipcard .flipcard-inner{
-    transform: rotateY(180deg);
-}	

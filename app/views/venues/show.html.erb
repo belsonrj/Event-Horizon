@@ -1,13 +1,10 @@
 <p id="notice"><%= notice %></p>
 
-<div>
-  <%= link_to 'Edit', edit_venue_path(@venue), {:class => "button"} %> |
-  <%= link_to "Delete", venue_destroy_path(id: @venue.id), {:class => "button"} %> |
-</div>
-<br>
 <hr>
 <h1 id="title"><%= @venue.name %></h1>
 <div class="box">
+  <a><%= link_to 'Edit', edit_venue_path(@venue) %></a> |
+  <a><%= link_to "Delete", venue_destroy_path(id: @venue.id) %></a>
   <h2>Locale:</h2>
   <h3><%= @venue.locale %>
   <h2>Venue Type:</h2>

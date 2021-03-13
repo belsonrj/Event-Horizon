@@ -5,16 +5,16 @@
       <% @event.each.index_by do |e| %>
         <div class="box"> 
           <%= link_to e.name, user_event_path(@user, e) %><br>
-          <strong><u><%="Date:"%></u></strong><br>
-          <%= e.date.strftime('%a, %d %b %Y') %><br><br>
-          <strong><u><%="Location:"%></u></strong><br>
-          <%= e.city %><br><br>
-          <strong><u><%="Artist:"%></u></strong><br>
-          <%= e.artist %><br><br>
-          <strong><u><%="Venue:"%></u></strong><br>
-          <%= e.venue %><br><br>
-          <strong><u><%="Comments:"%></u></strong>
-          <%= e.comments.count %><br><br>
+          <h4><%="Date:"%></h4>
+          <p><%= e.date.strftime('%a, %d %b %Y') %></p>
+          <h4><%="Location:"%></h4>
+          <p><%= e.city %></p>
+          <h4><%="Artist:"%></h4>
+          <p><%= e.artist %></p>
+          <h4><%="Venue:"%></h4>
+          <p><%= e.venue %></p>
+          <h4><%="Comments:"%></h4>
+          <p><%= e.comments.count %></p>
           created <%= time_ago_in_words(e.created_at) %> ago
           </div>
       <% end %>  

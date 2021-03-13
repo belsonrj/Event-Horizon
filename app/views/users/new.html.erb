@@ -1,21 +1,25 @@
 <!DOCTYPE html>
 
 <html>
+  
   <%= render partial: "users/form", locals: {user: @user} %>
+  <body>
+    <h1 id="app">Welcome to Event-Horizon!</h1>
 
-  <div class="box">
-    <h2>Join Event-Horizon!</h2>
-    <%= form_for(@user) do |f| %>
-    <div class="user-box">
-      <%= f.label :username%><br><br>
-      <%= f.text_field :username%><br>
-    </div>
-    <div class="user-box">
-      <%= f.label :password%><br><br>
-      <%= f.password_field :password%><br>
-    </div>
+    <div class="login-box">
+      <h1>Join Event-Horizon!</h1>
+      <%= form_for(@user) do |f| %>
+      
+      <h2><%= f.label :username%></h3>
+      <%= f.text_field :username%><br><br>
+
+      <h2><%= f.label :password%></h2>
+      <%= f.password_field :password%>
       <br>
+      <br>
+      
       <%= f.submit "Sign Up", {:class => "button"} %>
     <% end %>
   </div>
+  </body>
 </html>

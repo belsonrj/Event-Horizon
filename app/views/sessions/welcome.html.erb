@@ -3,52 +3,19 @@
 <%= render partial: "users/form", locals: {user: @user} %>
 <body>
   <h1 id="app">Welcome to Event-Horizon!</h1>
-  <div class="wrap">
-    <label for="form_switch">Click here to Sign Up!</label>
-        <input type="checkbox" id="form_switch">
-    
-    <div class="flipcard">
-	    <div class="flipcard-inner">
-        <div class="flipcard-front">
-          <div class="log-in">
-            <%= form_tag '/login' do %>
-            <h3><%= label_tag :username%></h3>
-            <%= text_field_tag :username %>
-            <br>
-            <h3><%= label_tag :password%><h3>
-            <%= password_field_tag :password%>
-            <br>
-            <br>
-            <a href="#">
-              <%= submit_tag "Login", {:class => "button"}%>
-              <%end%>
-            </a>
-            <br>
-            <br>
-            <%= link_to('Log in with GITHUB!', '/auth/github') %>
-            <br>
-          </div>
-        </div>
-      <div class="flipcard-back">
-        <div class="log-in">
-          
-          <%= form_for(@user) do |f| %>
-          <div>
-          <h3><%= f.label :username%></h3>
-            <%= f.text_field :username%>
-          </div>
-          <br>
-          <div>
-            <h3><%= f.label :password%></h3>
-            <%= f.password_field :password%>
-          </div>
-          
-          <br>
-            <%= f.submit "Sign Up", {:class => "button"} %>
-          <% end %>
-        </div>
-     </div>
+    <div class="login-box">
+        <%= form_tag '/login' do %>
+        <h2><%= label_tag :username %></h2>
+        <%= text_field_tag :username %><br><br>
+        <h2><%= label_tag :password %></h2>
+        <%= password_field_tag :password%><br>
+        <%= submit_tag "Login", {:class => "button"} %>
+        <%end%>
+        <br>
+        <br>
+        <a><%= link_to('Log in with GITHUB!', '/auth/github') %></a>
+        <hr>
+        <a><%= link_to('New? Sign Up Here!', '/users/new') %></a>
     </div>
-  </div>
-</body>
+  </body>
 </html>

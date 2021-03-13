@@ -1,20 +1,17 @@
 <p id="notice"><%= notice %></p>
 
-<div>
-  <%= link_to "Edit", edit_artist_path(@artist), {:class => "button"} %> |
-  <%= link_to "Delete", artist_destroy_path(id: @artist.id), {:class => "button"} %> |
-  <%= link_to "Home", user_path(@user), {:class => "button"} %>
-</div>
 <br>
 <hr>
 <h1 id="title"><%= @artist.name %></h1>
 <div class="box">
+  <a><%= link_to "Edit", edit_artist_path(@artist) %></a> |
+  <a><%= link_to "Delete", artist_destroy_path(id: @artist.id) %></a>
   <h2>Genre:</h2>
   <h3><%= @artist.genre %>
   <h2>Times Seen:</h2>
   <h3><%= @artist.times_seen %>
   <h2>Met?</h2>
-  <h3><%= @artist.met %></h3>
+  <h3><%= @artist.met %></h3><br>
 </div>
 
 <div class="box">
