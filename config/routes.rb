@@ -22,7 +22,7 @@ Rails.application.routes.draw do
   delete '/logout'  => 'sessions#destroy'
   get '/destroy' => 'sessions#destroy'
 
-  post	'/users/1'	=>	'users_path(user)'
+  post	'/users/1'	=>	'user_path(user)'
   post '/artists/new' => 'artists#new'
   post '/venues/new' => 'venues#new'
   post '/artists' => 'artists#create'

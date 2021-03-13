@@ -1,17 +1,16 @@
 html {
-    height: 120%;
-    margin-left: 300px;
-    margin-right: 300px;
+    height: auto;
   }
+
   body {
     margin: 0;
     padding: 0;
     font-family: sans-serif, 'Redressed', cursive;
-    background: linear-gradient(#141e30, #243b55);
+    background: linear-gradient(#1e293d, #32557d);
   }
 
 a:link{
-  color: rgb(65, 172, 111);
+  color: rgb(97, 248, 102);
   cursor: pointer;
   position: relative;
   border-radius: 3.75rem;
@@ -196,25 +195,28 @@ ul#subjects li {
 
 .button {
 	color: transparent;
-	background-image: linear-gradient(0deg, #EE82DA 0%, #FEFAFD 100%);
+	background-image: linear-gradient(0deg, #EE82DA 0%, #9a7992 100%);
 	-webkit-background-clip: text;
 	background-clip: text;
-	filter: drop-shadow(0 2px 2px rgb(110, 105, 238));
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+	filter: drop-shadow(0 2px 2px rgb(19, 19, 18));
 
   cursor: pointer;
 	position: relative;
 	padding: 1rem 1rem;
-	border-radius: 3.75rem;
+	border-radius: 2.75rem;
 	line-height: 0.5rem;
 	font-size: 2rem;
+  font-family: 'Courier New', Courier, monospace;
 	font-weight: 500;
 	
-	border: 1px solid #012880;
+	border: 2px solid #012880;
 	background-image: linear-gradient(-180deg, #FF89D6 0%, #C01F9E 100%);
-	box-shadow: 0 1rem 1rem 0 rgba(22,75,195,0.50),
-							0 -0.25rem 1.5rem rgba(110, 15, 155, 1) inset,
-							0 0.75rem 0.5rem rgba(255,255,255, 0.4) inset,
-							0 0.25rem 0.5rem 0 rgba(180, 70, 207, 1) inset;
+	box-shadow: 0 0.5rem 0.5rem 0 rgba(23, 250, 49, 0.5),
+							0 -0.25rem 1.5rem rgb(243, 247, 243) inset,
+							0 0.75rem 0.5rem rgba(184, 243, 7, 0.4) inset,
+							0 0.25rem 0.5rem 0 rgb(222, 234, 236) inset;
 }
 
 button::before {
@@ -444,7 +446,7 @@ button::after {
     background: linear-gradient(270deg, transparent, #03e9f4);
 }
 .flipcard{
-    background-color: transparent;
+    /*background-color: transparent;*/
     width : 350px;
     perspective: 1000px;
 }

@@ -1,5 +1,5 @@
 <html>
-<%= button_to 'Home', user_path(@user), {:class => "button"} %><br>
+<%= link_to 'Home', user_path(@user), {:class => "button"} %><br>
 
 
   <div class="box">
@@ -12,19 +12,19 @@
     <h3><%= @event.artist %></h3>
     <h2><strong><%="Venue:"%></strong></h2>
     <h3><%= @event.venue %></h3>
-  
-  <h1 id="title">Comments:</h1>
+  </div>
+  <div class="box">
+  <h1>Comments:</h1>
     <ul>
       <% @event.comments.each do |comment| %>
-        <li><strong><%= comment.user.username %>:</strong> <%= comment.content %></li>
-        <em><%= time_ago_in_words(comment.created_at) %> ago </em><br>
-        __________________
+        <h3><strong><%= comment.user.username %>:</strong> <%= comment.content %><br>
+        <em><%= time_ago_in_words(comment.created_at) %> ago </em></h3>
       <% end %>
     </ul>
-</div>
+  </div>
+
 <div class="box">
   <h1>Create A New Comment:</h1>
-
   <%= form_for @event.comments.build do |f|%>
     <%= f.hidden_field :event_id %>
     <%= f.hidden_field :user_id %>

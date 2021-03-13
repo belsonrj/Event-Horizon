@@ -1,7 +1,7 @@
 <html>
   <body>
     <h1 id="app">Created Events</h1>
-      <%= button_to 'Home', user_path(@user), {:class => "button"} %><br>
+      <%= link_to 'Home', user_path(@user), {:class => "button"} %>
       
            <% @event.each.index_by do |e| %>
            <div class="box"> 
