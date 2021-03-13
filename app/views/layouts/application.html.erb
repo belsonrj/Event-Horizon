@@ -10,13 +10,7 @@
     </head>
 
     <body>
-        <div id="header">
-            <% if logged_in? %>
-                <h1 id="app">
-                    <a><%= link_to "Event Horizon", user_path(@user) %></a>
-                </h1>
-            <%end%>   
-        </div>
+
 
         <%= yield %>
     </body>
