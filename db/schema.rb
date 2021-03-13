@@ -16,8 +16,8 @@ ActiveRecord::Schema.define(version: 2020_08_04_034019) do
   enable_extension "plpgsql"
 
   create_table "artist_venues", force: :cascade do |t|
-    t.integer "artist_id"
-    t.integer "venue_id"
+    t.bigint "artist_id"
+    t.bigint "venue_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["artist_id"], name: "index_artist_venues_on_artist_id"
@@ -25,20 +25,20 @@ ActiveRecord::Schema.define(version: 2020_08_04_034019) do
   end
 
   create_table "artists", force: :cascade do |t|
-    t.string "name"
-    t.string "genre"
+    t.text "name"
+    t.text "genre"
     t.integer "times_seen"
     t.boolean "met"
-    t.integer "user_id"
+    t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_artists_on_user_id"
   end
 
   create_table "comments", force: :cascade do |t|
-    t.string "content"
-    t.integer "user_id"
-    t.integer "event_id"
+    t.text "content"
+    t.bigint "user_id"
+    t.bigint "event_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["event_id"], name: "index_comments_on_event_id"
@@ -48,32 +48,32 @@ ActiveRecord::Schema.define(version: 2020_08_04_034019) do
   create_table "events", force: :cascade do |t|
     t.string "name"
     t.datetime "date"
-    t.string "city"
-    t.string "artist"
-    t.string "venue"
+    t.text "city"
+    t.text "artist"
+    t.text "venue"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "username"
-    t.string "password_digest"
+    t.text "username"
+    t.text "password_digest"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "venues", force: :cascade do |t|
-    t.string "name"
-    t.string "locale"
-    t.string "venue_type"
-    t.string "content"
-    t.integer "user_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.text "name"
+    t.text "locale"
+    t.text "venue_type"
     t.integer "layout"
     t.integer "sound"
     t.integer "comfort"
     t.integer "prices"
+    t.text "content"
+    t.bigint "user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_venues_on_user_id"
   end
 

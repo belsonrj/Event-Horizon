@@ -1,9 +1,11 @@
 html {
-    height: auto;
+    height: 120%;
+    margin-left: 300px;
+    margin-right: 300px;
   }
   body {
-    margin:0;
-    padding:0;
+    margin: 0;
+    padding: 0;
     font-family: sans-serif, 'Redressed', cursive;
     background: linear-gradient(#141e30, #243b55);
   }
@@ -248,7 +250,7 @@ button::after {
 	background-image: linear-gradient(-270deg, rgba(255,255,255,0.00) 0%, #FFFFFF 20%, #FFFFFF 80%, rgba(255,255,255,0.00) 100%);
 }
 
-/*
+
 .login-box {
     position: absolute;
     top: 55%;
@@ -406,7 +408,7 @@ button::after {
       bottom: 100%;
     }
   }
-*/
+
 
 
 .log-in{
