@@ -1,27 +1,22 @@
 <html>
   <body>
-    <h1 id="app">Created Events By Users</h1><br>
+    <h1 id="title">Created Events By Users</h1>
     <hr>
-    <br>
-      <%= link_to 'Home', user_path(@user), {:class => "button"} %><br><br>
-      
-           <% @event.each.index_by do |e| %>
-           <div class="box"> 
-            <%= link_to e.name, user_event_path(@user, e) %><br>
-            <strong><u><%="Date:"%></u></strong><br>
-            <%= e.date.strftime('%a, %d %b %Y') %><br><br>
-            <strong><u><%="Location:"%></u></strong><br>
-            <%= e.city %><br><br>
-            <strong><u><%="Artist:"%></u></strong><br>
-            <%= e.artist %><br><br>
-            <strong><u><%="Venue:"%></u></strong><br>
-            <%= e.venue %><br><br>
-            <strong><u><%="Comments:"%></u></strong>
-            <%= e.comments.count %><br><br>
-            created <%= time_ago_in_words(e.created_at) %> ago
-            </div>
-            <% end %>
-         </ul>
-      
+      <% @event.each.index_by do |e| %>
+        <div class="box"> 
+          <%= link_to e.name, user_event_path(@user, e) %><br>
+          <strong><u><%="Date:"%></u></strong><br>
+          <%= e.date.strftime('%a, %d %b %Y') %><br><br>
+          <strong><u><%="Location:"%></u></strong><br>
+          <%= e.city %><br><br>
+          <strong><u><%="Artist:"%></u></strong><br>
+          <%= e.artist %><br><br>
+          <strong><u><%="Venue:"%></u></strong><br>
+          <%= e.venue %><br><br>
+          <strong><u><%="Comments:"%></u></strong>
+          <%= e.comments.count %><br><br>
+          created <%= time_ago_in_words(e.created_at) %> ago
+          </div>
+      <% end %>  
   </body>
 </html>
