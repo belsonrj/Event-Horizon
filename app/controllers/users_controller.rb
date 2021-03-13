@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :logged_in?
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :set_user, only: [:show, :edit, :update, :destroy, :about]
 
   # GET /users/1
   # GET /users/1.json
@@ -24,6 +24,10 @@ class UsersController < ApplicationController
       else
         render :new
       end
+  end
+
+  def about
+    
   end
 
   def met_most

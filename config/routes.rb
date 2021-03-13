@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   end
 
   get '/' => 'sessions#welcome'
+  get "about", :to => "users#about"
   get    '/signup'  => 'users#new'
   post   '/signup'  => 'users#create'
   get    '/login'   => 'sessions#new'
