@@ -1,6 +1,7 @@
 
 html body {
-  height: 100%;
+  height: auto;
+  width: auto;
   margin: 0;
   padding: 0;
   font-family: sans-serif, 'Redressed', cursive;
@@ -186,8 +187,7 @@ ul#subjects {
 
 .button-at-top {
   position: absolute;
-  top: 20;
-  left: 100;
+  margin: 2em 3em 3em 5em;
 }
 
 .button {

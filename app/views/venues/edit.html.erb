@@ -1,33 +1,33 @@
-<h3 id="app">Edit Venue:</h3>
 <h1 id="title"><%= @venue.name %></h1>
 <hr>
-
   <div class="box">
     <div>
+    <br>
+    <br>
     <%= form_for(@venue) do |f| %>
-      <h2><%= f.label "Name:" %></h2><br>
+      <h2><%= f.label "Name:" %></h2>
       <%= f.text_field :name %> <br>
-      <h2><%= f.label "Locale:" %></h2><br>
+      <h2><%= f.label "Locale:" %></h2>
       <%= f.text_field :locale %> <br>
-      <h2><%= f.label "Venue Type:" %></h2><br>
+      <h2><%= f.label "Venue Type:" %></h2>
       <%= f.select :venue_type, [ nil, 'Bar', 'Small', 'Medium', 'Large', 'Arena', 'Festival', 'Amphitheater', 'Pavillion', 'Outdoor', 'Theatre']%><br>
-      <h2><%= f.label "Layout" %></h2><br>
+      <h2><%= f.label "Layout" %></h2>
       <%= f.select :layout, [ nil, '1', '2', '3', '4', '5']%><br>
-      <h2><%= f.label "Sound" %></h2><br>
+      <h2><%= f.label "Sound" %></h2>
       <%= f.select :sound, [ nil, '1', '2', '3', '4', '5']%><br>
-      <h2><%= f.label "Comfort" %></h2><br>
+      <h2><%= f.label "Comfort" %></h2>
       <%= f.select :comfort, [ nil, '1', '2', '3', '4', '5']%><br>
-      <h2><%= f.label "Prices" %></h2><br>
+      <h2><%= f.label "Prices" %></h2>
       <%= f.select :prices, [ nil, '1', '2', '3', '4', '5']%><br>
-      <h2><%= f.label "Venue Comments" %></h2><br>
+      <h2><%= f.label "Venue Comments" %></h2>
       <%= f.text_area :content %><br>
   </div>
   <hr>
     <div>
-      <h3><%= f.label "Create New Artist:" %></h3><br>
-      <h2><%= f.label "Artist Name:" %></h2><br>
+      <h3><%= f.label "Create New Artist:" %></h3>
+      <h2><%= f.label "Artist Name:" %></h2>
       <input type="text" id="name" name="artist[name]" /> <br>
-      <h2><%= f.label "Genre:" %></h2><br>
+      <h2><%= f.label "Genre:" %></h2>
       <input type="text" id="locale" name="artist[genre]" /> <br>
     </div>
   </div>

@@ -1,37 +1,33 @@
 <body>
-<%= link_to 'Back', user_path(@user), {:class => "button"} %>   
+
 <div class="box">
     <h3 id="app">New Event:</h3>
     <%= render partial: "users/form", locals: {user: @event} %>
-        
         <%= form_with(model: [@user, @event], local: true) do |form| %>
-            <% if @event.errors.any? %>
-                <div id="error_explanation">
-                    <h2>
-                        <%= pluralize(@event.errors.count, "error") %> prohibited this post from being saved:</h2>
-
-                    <ul>
-                        <% @event.errors.full_messages.each do |message| %>
-                            <li>
-                                <%= message %>
-                            </li>
-                            <% end %>
-                    </ul>
-                </div>
-                <% end %>
+        <% if @event.errors.any? %>
+            <div id="error_explanation">
+                <h2>
+                <%= pluralize(@event.errors.count, "error") %> prohibited this post from being saved:</h2>
+                <ul>
+                    <% @event.errors.full_messages.each do |message| %>
+                        <li><%= message %></li>
+                    <% end %>
+                </ul>
+            </div>
+        <% end %>
         <div class="field">
-          <h2><%= form.label :name %></h2><br>
-          <%= form.text_field :name %><br>
-          <h2><%= form.label :date %></h2><br>
-          <%= form.date_field :date, as: :date, value: form.object.try(:strftime,"%m/%d/%Y"), class: 'form-control' %><br>
-          <h2><%= form.label :city %></h2><br>
-          <%= form.text_field :city %><br>
-          <h2><%= form.label :artist %></h2><br>
-          <%= form.text_field :artist %><br>
-          <h2><%= form.label :venue %></h2><br>
-          <%= form.text_field :venue %><br>
+          <h2><%= form.label :name %></h2>
+          <%= form.text_field :name %>
+          <h2><%= form.label :date %></h2>
+          <%= form.date_field :date, as: :date, value: form.object.try(:strftime,"%m/%d/%Y"), class: 'form-control' %>
+          <h2><%= form.label :city %></h2>
+          <%= form.text_field :city %>
+          <h2><%= form.label :artist %></h2>
+          <%= form.text_field :artist %>
+          <h2><%= form.label :venue %></h2>
+          <%= form.text_field :venue %>
         </div>
-
+        <br>
         <div class="actions">
            <%= form.submit :class => "button" %>
         </div>

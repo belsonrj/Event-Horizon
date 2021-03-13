@@ -1,8 +1,8 @@
 <div class="box">
+<br>
+<br>
+<br>
   <%= render partial: "users/form", locals: {user: @venue} %>
-
-  <h1>New Venue</h1>
-
   <%= form_for(@venue) do |f| %>
     <%= f.label "Name" %> <br>
     <%= f.text_field :name %> <br>
