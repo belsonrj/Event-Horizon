@@ -1,43 +1,46 @@
-html {
-    height: auto;
-  }
 
-  body {
-    margin: 0;
-    padding: 0;
-    font-family: sans-serif, 'Redressed', cursive;
-    background: linear-gradient(#1e293d, #32557d);
-  }
+html body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif, 'Redressed', cursive;
+  background: linear-gradient(#1e293d, #32557d);
+}
 
 a:link{
-  color: rgb(97, 248, 102);
+  color: rgb(185, 248, 97);
   cursor: pointer;
   position: relative;
   border-radius: 3.75rem;
   line-height: 2rem;
-  font-size: 1.5rem;
-  font-weight: 300;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 2rem;
+  font-style: bold;
+  text-decoration: none;
 }
 
 a:hover{
-  color: rgb(183, 235, 27);
-  filter: drop-shadow(10px 10px 10px rgb(169, 241, 163));
+  color: rgb(195, 247, 41);
+  filter: drop-shadow(10px 10px 10px rgb(237, 241, 236));
   cursor: pointer;
   position: relative;
   border-radius: 3.75rem;
-  line-height: 2rem;
-  font-size: 1.75rem;
-  font-weight: 300;
+  line-height: 2.5rem;
+  font-size: 2rem;
+  font-style: bold;
 }
+
+/*
 a:visited {
-  color: rgb(252, 7, 7);
+  color: rgb(248, 9, 9);
   cursor: pointer;
   position: relative;
   border-radius: 3.75rem;
   line-height: 2rem;
   font-size: 1.75rem;
-  font-weight: 300;
+  font-weight: 500;
 }
+*/
 
 input {
     margin-bottom: 5px;
@@ -58,6 +61,7 @@ h1#app{
   font-family: Brush Script MT, Brush Script Std, cursive;
   filter: drop-shadow(5px 5px 5px rgb(163, 212, 241));
   margin-top: 0;
+  margin-bottom: 0;
 }
 
 h3#app{
@@ -83,15 +87,6 @@ h1#title {
     border: 3px solid #012880;
 }
 
-h2#top {
-    font-family: 'Open Sans Condensed', sans-serif; 
-    font-size: 30px;
-    background-color: rgb(72, 80, 123);
-    color: rgb(249, 249, 250);
-    animation: mymove 1s infinite;
-    border-radius: .75rem;
-}
-
 h3#show {
     font: Helvetica;
     background-color: rgba(169, 190, 240, 0.918);
@@ -102,15 +97,15 @@ h3#show {
 }
 
 div#container {
-    width: 950px;
-    margin: 0 auto;
-    margin-left: 0 auto;
-    margin-right: 0 auto;
+    width: auto;
+    margin-left: 300px;
+    margin-right: 300px;
 }
 
 div#header {
     text-align: center;
     padding-bottom: 0px;
+    margin: auto;
 }
 
 div#content {
@@ -144,16 +139,6 @@ ul#subjects {
     margin-bottom: 20px;
 }
 
-ol#list {
-    text-align: left;
-    font-size: 25px;
-}
-
-ul#subjects li {
-    display: inline;
-    padding-left: 5px;
-}
-
 .box {
   background-color: rgba(71, 59, 88, 0.374);
   border-style: outset;
@@ -163,18 +148,30 @@ ul#subjects li {
   width: 400px;
   float: left;
   display: inline;
-  padding-left: 10px;
-  margin-top: 60px;
+  padding: 10px;
+  margin-top: 15px;
   margin-right: 5px;
   margin-left: 5px;
 }
 
+.box ol {
+  text-align: left;
+  font-size: 30px;
+}
+
+.box ol li a {
+  color: #03e9f4;
+  text-align: left;
+  font-size: 30px;
+  font-weight: 500;
+}
+
 .box h2{
-  color: #0e2c64;
-  text-shadow: #041e4e;
-  font-weight: 600;
+  color: #052940;
+  text-shadow: #f4f5f1;
+  font-size: 35px;
   font-style: italic;
-  text-decoration: underline;
+  border: #03e9f4;
 }
 
 .box h3{
@@ -194,13 +191,13 @@ ul#subjects li {
 }
 
 .button {
-	color: transparent;
+	color: black;
 	background-image: linear-gradient(0deg, #EE82DA 0%, #9a7992 100%);
 	-webkit-background-clip: text;
 	background-clip: text;
   -webkit-box-decoration-break: clone;
   box-decoration-break: clone;
-	filter: drop-shadow(0 2px 2px rgb(19, 19, 18));
+	filter: drop-shadow(0 2px 2px rgba(245, 245, 16, 0.776));
 
   cursor: pointer;
 	position: relative;
@@ -209,7 +206,7 @@ ul#subjects li {
 	line-height: 0.5rem;
 	font-size: 2rem;
   font-family: 'Courier New', Courier, monospace;
-	font-weight: 500;
+	font-weight: 600;
 	
 	border: 2px solid #012880;
 	background-image: linear-gradient(-180deg, #FF89D6 0%, #C01F9E 100%);
@@ -446,8 +443,9 @@ button::after {
     background: linear-gradient(270deg, transparent, #03e9f4);
 }
 .flipcard{
-    /*background-color: transparent;*/
+    background-color: transparent;
     width : 350px;
+    height: auto;
     perspective: 1000px;
 }
 .flipcard-inner{
@@ -465,7 +463,7 @@ button::after {
     backface-visibility: hidden;
 }
 .flipcard-front{
-    color: black;
+    color: rgb(0, 0, 0);
 }
 .flipcard-back{
     background-color: #69d2e7;

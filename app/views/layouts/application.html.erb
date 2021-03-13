@@ -3,6 +3,7 @@
     <head>
         <title>Event-Horizon</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
         <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
         <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
         <%= csrf_meta_tags %>
@@ -10,9 +11,9 @@
         <link href="https://fonts.googleapis.com/css2?family=Redressed&display=swap" rel="stylesheet">
     </head>
 
-    <body id="library">
-        <div id = "container">
-            <div id = "header">
+    <body>
+        <div id="container">
+            <div id="header">
                 <% if logged_in? %>
                 <h1 id="app">Event-Horizon</h1>
                 <%end%>

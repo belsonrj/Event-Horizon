@@ -9,6 +9,6 @@ class Venue < ApplicationRecord
   scope :order_by_layout, -> { order(layout: :desc) }
   scope :order_by_sound, -> { order(sound: :desc) }
   scope :order_by_comfort, -> { order(comfort: :desc) }
-  scope :order_by_prices, -> { order(price: :desc) }
+  scope :order_by_prices, -> { order(prices: :desc) }
 
 end

@@ -2,23 +2,23 @@
 <html>
   <body>
     <h1 id=title>Top Rated Venues</h1>
-    <%= button_to "Home", user_path(@user), {:class => "button"} %>
+    <%= link_to "Back", user_path(@user), {:class => "button"} %>
 
   <div style="width: 100%; margin: 0 auto; overflow: auto; height: 600px">
-    <div style="width: 200px; float: left;">  
+    <div class="box">  
        
-       <h2 id=top>Layout:</h2>
-       <ol id="list">
+       <h2>Layout:</h2>
+       <ol>
           <% @venue_layout.sort_by(&:layout).reverse.each do |venue| %>
             <li><%= link_to venue.name, user_venue_path(@user, venue) %> </li>
           <% end %>
        </ol>
     </div>
 
-    <div style="width: 200px; float: left;">  
+    <div class="box">  
     
-       <h2 id=top>Sound:</h2>
-       <ol id="list">
+       <h2>Sound:</h2>
+       <ol>
           <% @venue_sound.sort_by(&:sound).reverse.each do |venue| %>
             <li><%= link_to venue.name, user_venue_path(@user, venue) %> </li>
           <% end %>
@@ -26,9 +26,9 @@
     </div>
     
 
-    <div style="width: 200px; float: left;">  
-      <h2 id=top>Comfort:</h2>
-      <ol id="list">
+    <div class="box">  
+      <h2>Comfort:</h2>
+      <ol>
        <% @venue_comfort.sort_by(&:comfort).reverse.each do |venue| %>
         <li><%= link_to venue.name, user_venue_path(@user, venue) %> </li>
        <% end %>
@@ -36,9 +36,9 @@
     </div>
     
    
-    <div style="width: 200px; float: left;">  
-      <h2 id=top>Prices:</h2>
-      <ol id="list">
+    <div class="box">  
+      <h2>Prices:</h2>
+      <ol>
        <% @venue_prices.sort_by(&:prices).reverse.each do |venue| %>
         <li><%= link_to venue.name, user_venue_path(@user, venue) %> </li>
        <% end %>

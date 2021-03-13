@@ -1,4 +1,5 @@
-<body>   
+<body>
+<%= link_to 'Back', user_path(@user), {:class => "button"} %>   
 <div class="box">
     <h3 id="app">New Event:</h3>
     <%= render partial: "users/form", locals: {user: @event} %>
