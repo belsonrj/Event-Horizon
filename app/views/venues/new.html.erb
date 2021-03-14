@@ -4,38 +4,46 @@
 <br>
   <%= render partial: "users/form", locals: {user: @venue} %>
   <%= form_for(@venue) do |f| %>
-    <%= f.label "Name" %> <br>
-    <%= f.text_field :name %> <br>
-    <%= f.label "Locale" %> <br>
-    <%= f.text_field :locale %> <br>
-    <%= f.label "Venue Type" %> <br>
-    <%= f.select :venue_type, [ nil, 'Bar', 'Small', 'Medium', 'Large', 'Arena', 'Festival', 'Amphitheater', 'Pavillion', 'Outdoor', 'Theatre']%><br>
-    <%= f.label "Layout" %> <br>
-    <%= f.select :layout, [ nil, '1', '2', '3', '4', '5']%><br>
-    <%= f.label "Sound" %> <br>
-    <%= f.select :sound, [ nil, '1', '2', '3', '4', '5']%><br>
-    <%= f.label "Comfort" %> <br>
-    <%= f.select :comfort, [ nil, '1', '2', '3', '4', '5']%><br>
-    <%= f.label "Prices" %> <br>
-    <%= f.select :prices, [ nil, '1', '2', '3', '4', '5']%><br>
-    <%= f.label "Venue Comments" %> <br>
-    <%= f.text_area :content %><br>
+    <span>
+      <h4><%= f.label "Name" %></h4>
+      <%= f.text_field :name %>
+      <h4><%= f.label "Locale" %></h4>
+      <%= f.text_field :locale %>
+      <h4><%= f.label "Venue Type" %></h4>
+      <%= f.select :venue_type, [ nil, 'Bar', 'Small', 'Medium', 'Large', 'Arena', 'Festival', 'Amphitheater', 'Pavillion', 'Outdoor', 'Theatre']%>
+    </span>
+    <span>
+      <h4><%= f.label "Layout" %></h4>
+      <%= f.select :layout, [ 0, '1', '2', '3', '4', '5']%>
+      <h4><%= f.label "Sound" %></h4>
+      <%= f.select :sound, [ 0, '1', '2', '3', '4', '5']%>
+    </span>
+    <span>
+      <h4><%= f.label "Comfort" %></h4>
+      <%= f.select :comfort, [ 0, '1', '2', '3', '4', '5']%>
+      <h4><%= f.label "Prices" %></h4>
+      <%= f.select :prices, [ 0, '1', '2', '3', '4', '5']%>
+    </span>
+    <span>
+      <h4><%= f.label "Venue Comments" %></h4>
+      <%= f.text_area :content %>
+    </span>
 </div>
 
 <div class="box">
-  <%= f.label "Create a New Artist" %> <br>
-  <%= f.label "Name" %> <br>
-  <input type="text" id="name" name="artist[name]" /> <br>
-  <%= f.label "Genre" %> <br>
-  <input type="text" id="genre" name="artist[genre]" /> <br>
-  <%= f.label "Times Seen" %> <br>
-  <input type="text" id="times_seen" name="artist[times_seen]" /> <br>
-  <%= f.label "Met?" %> <br>
-  <input type="checkbox" id="met" name="artist[met]" /> <br>
+  <h3><%= f.label "Attach a New Artist" %></h3>
+  <h4><%= f.label "Name" %></h4>
+  <input type="text" id="name" name="artist[name]" />
+  <h4><%= f.label "Genre" %></h4>
+  <input type="text" id="genre" name="artist[genre]" />
+  <h4><%= f.label "Times Seen" %> <br>
+  <input type="text" id="times_seen" name="artist[times_seen]" />
+  <h4><%= f.label "Met?" %></h4>
+  <input type="checkbox" id="met" name="artist[met]" />
 </div>
 
 <div class="box">
-  <h2><%= f.label "Artist?" %></h2>
+  <h3><%= f.label "Attach Existing Artist" %></h3>
   <% @user.artists.all.order_artists.each do |a| %>
       <p><label for="artist_id_<%= a.id %>"><%= a.name %></label>
       <input type="checkbox" name="venue[artist_ids][]" value="<%= a.id %>"></p>

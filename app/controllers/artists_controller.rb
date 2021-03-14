@@ -37,7 +37,7 @@ class ArtistsController < ApplicationController
   # POST /artists.json
   def create
     @user = current_user
-    @venue = Venue.create(params.require(:venue).permit(:name, :locale))
+    @venue = Venue.create(params.require(:venue).permit(:name, :locale, :venue_type, :layout, :sound, :comfort, :prices, :content))
     @artist = Artist.create(artist_params)
 
     @user.artists << @artist

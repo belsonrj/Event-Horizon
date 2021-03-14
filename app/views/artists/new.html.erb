@@ -4,25 +4,29 @@
 <br>
   <%= render partial: "users/form", locals: {user: @artist} %>
   <%= form_for(@artist) do |f| %>
-  <%= f.label "Name" %> <br>
-  <%= f.text_field :name %> <br>
-  <%= f.label "Genre" %> <br>
-  <%= f.text_field :genre %> <br>
-  <%= f.label "Times Seen" %> <br>
-  <%= f.select :times_seen, (1..99) %> <br>
-  <%= f.label "Met?" %> <br>
-  <%= f.check_box :met %> <br>
+  <h4><%= f.label "Name" %></h4>
+  <%= f.text_field :name %>
+  <h4><%= f.label "Genre" %></h4>
+  <%= f.select :genre, ['Choose', 'Rock', 'Pop', 'Metal', 'Rap', 'Hip-Hop', 'Singer/Songwriter', 'Folk', 'Country', 'Jazz',
+                        'Bluegrass', 'Electronic', 'Afrobeat', 'New Wave', 'Punk'] %>
+  <h4><%= f.label "Times Seen" %></h4>
+  <%= f.select :times_seen, (1..99) %>
+  <h4><%= f.label "Met?" %></h4>
+  <%= f.check_box :met %>
 </div>
 <div class="box">
-    <strong><%= f.label "Create a New Venue:" %> <br></strong>
-    <br>
-    <%= f.label "Venue Name:" %> <br>
-    <input type="text" id="name" name="venue[name]" /> <br>
-    <%= f.label "Locale:" %> <br>
-    <input type="text" id="locale" name="venue[locale]" /> <br>
+    <h3><%= f.label "Attach a New Venue:" %></h3>
+    <h4><%= f.label "Venue Name:" %></h4>
+    <input type="text" id="name" name="venue[name]" />
+    <h4><%= f.label "Locale:" %></h4>
+    <input type="text" id="locale" name="venue[locale]" />
+    <input type="hidden" id="layout" name="venue[layout]" value='0' />
+    <input type="hidden" id="sound" name="venue[sound]" value='0' />
+    <input type="hidden" id="comfort" name="venue[comfort]" value='0' />
+    <input type="hidden" id="prices" name="venue[prices]" value='0' />
 </div>
 <div class="box">
-  <h2><%= f.label "Venue Attended?" %></h2>
+  <h3><%= f.label "Attach an Existing Venue:" %></h3>
   
   <% @user.venues.all.order_venues.each do |v| %>
       <p><label for="venue_id_<%= v.id %>"><%= v.name %></label>

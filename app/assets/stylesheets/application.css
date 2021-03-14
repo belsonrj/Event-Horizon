@@ -238,6 +238,11 @@ ul#subjects {
   font-size: 15px;
 }
 
+.box span{
+  float: left;
+  margin: 10px;
+}
+
 .checkbox_container input{
   display: inline;
 }
