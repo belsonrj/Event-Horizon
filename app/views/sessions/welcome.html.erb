@@ -1,8 +1,16 @@
 <!DOCTYPE html>
 <html>
-<%= render partial: "users/form", locals: {user: @user} %>
+<header>
+  <style>
+    body {
+      background-image: "app/assets/images/event.jpg";
+    }
+  </style>
+</header>
 <body>
-  <h1 id="app">Welcome to Event-Horizon!</h1>
+  <%= render partial: "users/form", locals: {user: @user} %>
+
+  <h1 id="app">Event-Horizon</h1>
     <div class="login-box">
         <%= form_tag '/login' do %>
         <h2><%= label_tag :username %></h2>
@@ -17,5 +25,5 @@
         <hr>
         <a><%= link_to('New? Sign Up Here!', '/users/new') %></a>
     </div>
-  </body>
+</body>
 </html>

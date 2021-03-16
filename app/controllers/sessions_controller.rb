@@ -29,6 +29,7 @@ class SessionsController < ApplicationController
         
          redirect_to user_path(@user)
       else
+        #render json: {status: "error", code: 3000, message: "Invalid Login/Password"}
         render 'sessions/welcome'
       end
     end

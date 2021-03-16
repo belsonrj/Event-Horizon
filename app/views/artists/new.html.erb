@@ -12,13 +12,14 @@
   <h4><%= f.label "Times Seen" %></h4>
   <%= f.select :times_seen, (1..99) %>
   <h4><%= f.label "Met?" %></h4>
-  <%= f.check_box :met %>
+  <%= f.radio_button :met, true, :checked => false %> Yes
+  <%= f.radio_button :met, false, :checked => true %> No
 </div>
 <div class="box">
     <h3><%= f.label "Attach a New Venue:" %></h3>
-    <h4><%= f.label "Venue Name:" %></h4>
+    <h4><%= f.label "Venue Name" %></h4>
     <input type="text" id="name" name="venue[name]" />
-    <h4><%= f.label "Locale:" %></h4>
+    <h4><%= f.label "Locale" %></h4>
     <input type="text" id="locale" name="venue[locale]" />
     <input type="hidden" id="layout" name="venue[layout]" value='0' />
     <input type="hidden" id="sound" name="venue[sound]" value='0' />

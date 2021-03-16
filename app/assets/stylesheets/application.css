@@ -5,10 +5,15 @@ html body {
   margin: 0;
   padding: 0;
   font-family: sans-serif, 'Redressed', cursive;
-  background: linear-gradient(#414349, #98a0a9);
+  background-image: url("event.jpg");
+  background-size: cover;
+  background-attachment: fixed;
+  /*background: linear-gradient(#414349, #98a0a9);*/
+  background-repeat: no-repeat;
 }
 
 .content {
+  color: white;
   height: auto;
   width: auto;
   margin: 0;
@@ -20,8 +25,9 @@ a:link{
 }
 
 .menu ul{
-  border: white;
-  border-style: outset;
+  border: white 5px;
+  background-color: rgba(0, 0, 0, 0.639);
+  border-style: ridge;
   padding: 10px;
   list-style-type: none;
   overflow: auto;
@@ -50,12 +56,36 @@ a:visited {
 
 input {
     margin-bottom: 5px;
+    background-color: #111111c2;
+    color: white;
+    border-radius: 1em;
+    padding: 3px;
+}
+
+input[type='radio'] { 
+  transform: scale(2);
+  margin: 10px;
+}
+
+select{
+  background-color: rgba(0, 0, 0, 0.578);
+  color: white;
+  border-radius: 1em;
+  padding: 3px;
+}
+
+textarea{
+  background-color: rgba(0, 0, 0, 0.578);
+  color: white;
+  border-radius: 1em;
+  padding: 10px;
 }
 
 p {
-    color: rgb(132, 166, 199);
-    line-height: 150%;
+    color: rgb(51, 50, 50);
+    line-height: 120%;
     font-size: 1.5rem;
+    font-weight: 700;
 }
 
 h1#app{
@@ -164,11 +194,11 @@ ul#subjects {
 */
 
 .box {
-  background-color: rgba(71, 59, 88, 0.374);
+  background-color: rgba(248, 246, 250, 0.578);
   border-style: outset;
   border: 5px solid rgba(0, 7, 0, 0.626);
   border-radius: 0.75em;
-  filter: drop-shadow(0 5px 5px rgba(0, 0, 0, 0.558));
+  filter: drop-shadow(0 5px 5px rgba(0, 0, 0, 0.687));
   height: auto;
   width: 400px;
   float: left;
@@ -187,7 +217,7 @@ ul#subjects {
   line-height: 2rem;
   font-family: 'Courier New', Courier, monospace;
   font-size: 1.5rem;
-  font-style: bold;
+  font-weight: 500;
   text-decoration: none;
 }
 
@@ -198,7 +228,7 @@ ul#subjects {
   position: relative;
   border-radius: 3.75rem;
   line-height: 2rem;
-  font-size: 1.75rem;
+  font-size: 1.5rem;
   font-style: bold;
   text-decoration: underline;
 }
@@ -213,29 +243,32 @@ ul#subjects {
 }
 
 .box ol li a {
-  color: #03e9f4;
+  color: #111111;
   text-align: left;
   font-size: 30px;
-  font-weight: 500;
+  font-weight: 800;
 }
 
 .box h2{
-  color: white;
+  color: rgba(12, 11, 11, 0.721);
   text-shadow: #f4f5f1;
-  font-size: 35px;
+  font-size: 25px;
   font-style: italic;
   border: #03e9f4;
+  text-decoration: overline;
 }
 
 .box h3{
-  color: silver;
+  color: black;
   border-style: groove;
   padding: 10px;
+  font-style: italic;
 }
 
 .box h4{
-  color: silver;
-  font-size: 15px;
+  color: rgb(15, 15, 15);
+  font-size: 18px;
+  text-decoration: overline;
 }
 
 .box span{
@@ -244,6 +277,7 @@ ul#subjects {
 }
 
 .checkbox_container input{
+  color: silver;
   display: inline;
 }
 
@@ -273,9 +307,9 @@ ul#subjects {
 	
 	border: 3px solid #0c0c0e;
 	background-image: linear-gradient(-180deg, #FF89D6 0%, #C01F9E 100%);
-	box-shadow: 0 0.5rem 0.5rem 0 rgba(23, 250, 49, 0.5),
+	box-shadow: 0 0.5rem 0.5rem 0 rgba(241, 243, 241, 0.905),
 							0 -0.25rem 1.5rem rgb(243, 247, 243) inset,
-							0 0.75rem 0.5rem rgba(184, 243, 7, 0.4) inset,
+							0 0.75rem 0.5rem rgba(239, 240, 238, 0.544) inset,
 							0 0.25rem 0.5rem 0 rgb(222, 234, 236) inset;
 }
 
