@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
     helper_method :current_user
     helper_method :logged_in?
+    before_action :logged_in?
 #    around_action :handle_exceptions, if: proc { request.path.include?('/') }
     
     def current_user
