@@ -8,7 +8,8 @@ html body {
   width: auto;
   margin: 0;
   padding: 0;
-  font-family: sans-serif, 'Redressed', cursive;
+  font-family: 'Monoton', cursive;
+  font-weight: 100;
   background-image: url("https://wallpapercave.com/wp/wp3358663.png");
   background-size: cover;
   background-attachment: fixed; 
@@ -20,6 +21,11 @@ html body {
   width: auto;
   margin: 0;
   padding: 0;
+}
+
+h2{
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', serif
+  font-size: 35px;
 }
 
 a:link{
@@ -91,6 +97,7 @@ textarea{
 p {
     color: rgb(51, 50, 50);
     line-height: 120%;
+    font-family: 'Courier New', Courier, monospace;
     font-size: 1.5rem;
     font-weight: 700;
 }
@@ -101,11 +108,10 @@ h1#app{
   border-radius: 10px;
   text-align: center;
   letter-spacing: 0.1em;
-  color:white;
-  font-size: 6rem;
-  font-weight: 400;
-  font-family: Brush Script MT, Brush Script Std, cursive;
-  filter: drop-shadow(5px 5px 5px yellow);
+  color:rgb(255, 255, 255);
+  font-size: 5rem;
+  font-weight: 100;
+  filter: drop-shadow(8px 8px 8px yellow);
   margin-top: 0;
   margin-bottom: 0;
 }
