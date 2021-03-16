@@ -1,16 +1,11 @@
 <!DOCTYPE html>
 <html>
 <header>
-  <style>
-    body {
-      background-image: "app/assets/images/event.jpg";
-    }
-  </style>
 </header>
-<body>
+<body id="login-background">
   <%= render partial: "users/form", locals: {user: @user} %>
 
-  <h1 id="app">Event-Horizon</h1>
+  <h1 class="title"> <span class="neon">Event</span><span class="flux">Horizon</span></h1>
     <div class="login-box">
         <%= form_tag '/login' do %>
         <h2><%= label_tag :username %></h2>

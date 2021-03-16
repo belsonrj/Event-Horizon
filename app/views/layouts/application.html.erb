@@ -12,8 +12,9 @@
     <body>
         <div id="header">
             <% if logged_in? %>
-                <h1 id="app">
-                    <a><%= link_to "Event Horizon", user_path(@user) %></a>
+                <h1 class="title">
+                    <span class="neon"><a><%= link_to "Event", user_path(@user) %></a></span>
+                    <span class="flux"><a><%= link_to "Horizon", user_path(@user) %></a></span>
                 </h1>
             <% else %>
                 <span></span>

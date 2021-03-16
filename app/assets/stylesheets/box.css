@@ -1,0 +1,84 @@
+
+.box {
+    background-color: rgba(248, 246, 250, 0.578);
+    border-style: outset;
+    border: 5px solid rgba(0, 7, 0, 0.626);
+    border-radius: 0.75em;
+    filter: drop-shadow(0 5px 5px rgba(0, 0, 0, 0.687));
+    height: auto;
+    width: 400px;
+    float: left;
+    display: inline;
+    padding: 15px;
+    margin-top: 15px;
+    margin-right: 5px;
+    margin-left: 5px;
+  }
+  
+  .box a:link{
+    color: white;
+    cursor: pointer;
+    position: relative;
+    border-radius: 3.75rem;
+    line-height: 2rem;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1.5rem;
+    font-weight: 500;
+    text-decoration: none;
+  }
+  
+  .box a:hover{
+    color: rgb(195, 247, 41);
+    filter: drop-shadow(10px 10px 10px rgb(237, 241, 236));
+    cursor: pointer;
+    position: relative;
+    border-radius: 3.75rem;
+    line-height: 2rem;
+    font-size: 1.5rem;
+    font-style: bold;
+    text-decoration: underline;
+  }
+  
+  .box a:visited{
+    color: white;
+  }
+  
+  .box ol {
+    text-align: left;
+    font-size: 30px;
+  }
+  
+  .box ol li a {
+    color: #111111;
+    text-align: left;
+    font-size: 30px;
+    font-weight: 800;
+  }
+  
+  .box h2{
+    color: rgba(12, 11, 11, 0.721);
+    text-shadow: #f4f5f1;
+    font-size: 25px;
+    font-style: italic;
+    border: #03e9f4;
+    text-decoration: overline;
+  }
+  
+  .box h3{
+    color: black;
+    border-style: groove;
+    padding: 10px;
+    font-style: italic;
+  }
+  
+  .box h4{
+    color: rgb(15, 15, 15);
+    font-size: 18px;
+    text-decoration: overline;
+  }
+  
+  .box span{
+    float: left;
+    margin: 10px;
+  }
+  
