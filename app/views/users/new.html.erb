@@ -2,7 +2,6 @@
 
 <html>
   
-  <%= render partial: "users/form", locals: {user: @user} %>
   <body>
     <h1 class="title">Event Horizon</h1>
 
@@ -21,5 +20,6 @@
       <%= f.submit "Sign Up", {:class => "button"} %>
     <% end %>
   </div>
+  <%= render partial: "users/form", locals: {user: @user} %>
   </body>
 </html>

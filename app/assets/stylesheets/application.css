@@ -24,8 +24,8 @@ html body {
 }
 
 h2{
-  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', serif
-  font-size: 35px;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', serif;
+  font-size: 30px;
 }
 
 a:link{
@@ -164,4 +164,15 @@ div#header a:link{
 
 div#header a:hover{
   color: gold;
+}
+
+#error_explanation{
+  font-family: 'Times New Roman', Times, serif;
+  font-style: italic;
+  border: 5px;
+  width: 300px;
+  height: auto;
+  border-style: dashed;
+  background-color: yellow;
+  margin-top: 10px;
 }
