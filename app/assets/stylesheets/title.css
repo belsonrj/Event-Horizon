@@ -1,4 +1,15 @@
-
+h1#title {
+    font-family: Brush Script MT, Brush Script Std, cursive;
+    font-size: 3rem;
+    text-align: center;
+    letter-spacing: 0.3em;
+    background-image: linear-gradient(135deg, #252323 0%, rgb(138, 137, 137) 50%, #252323 100%);
+    filter: drop-shadow(0 5px 5px white);
+    color: rgb(250, 246, 246);
+    border-radius: 2rem;
+    padding: 0.5rem 0.5rem;
+    border: 3px solid silver;
+}
   
   .title {
     background-color: black;
