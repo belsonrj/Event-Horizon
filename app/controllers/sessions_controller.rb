@@ -11,6 +11,7 @@ class SessionsController < ApplicationController
   end
 
   def create
+    @user = User.new
     if auth_hash = request.env["omniauth.auth"]
 
       oauth_username = request.env["omniauth.auth"]["info"]["nickname"]
@@ -30,7 +31,8 @@ class SessionsController < ApplicationController
         
          redirect_to user_path(@user)
       else
-        render 'sessions/welcome'
+        flash[:notice] = "Invalid Input!"
+        redirect_to '/'
       end
     end
   end

@@ -1,10 +1,6 @@
 <!DOCTYPE html>
 <html>
-<header>
-</header>
 <body id="login-background">
-  <%= render partial: "users/form", locals: {user: @user} %>
-
   <h1 class="title">Event Horizon</h1>
     <div class="login-box">
         <%= form_tag '/login' do %>
@@ -20,5 +16,6 @@
         <hr>
         <a><%= link_to('New? Sign Up Here!', '/users/new') %></a>
     </div>
+    <%= render partial: "users/form", locals: {user: @user} %>
 </body>
 </html>
