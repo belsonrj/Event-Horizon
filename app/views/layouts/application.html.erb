@@ -10,17 +10,8 @@
     </head>
 
     <body>
-        <div id="header">
-            <% if logged_in? %>
-                <h1 id="app">
-                    <a><%= link_to "Event Horizon", user_path(@user) %></a>
-                </h1>
-            <% else %>
-                
-            <%end%>   
-        </div>
+        <%= render partial: "users/header", locals: {user: @user} %>
         <%= yield %>
-    
     </body>
 </html>
 
