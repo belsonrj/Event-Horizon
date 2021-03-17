@@ -1,9 +1,9 @@
-        <div id="header">
-            <% if logged_in? %>
-                <h1 id="app">
-                    <a><%= link_to "Event Horizon", user_path(@user) %></a>
-                </h1>
-            <% else %>
+<% if logged_in? %>
+    <div id="header">
+        <h1 id="app">
+        <a><%= link_to "Event Horizon", user_path(@user) %></a>
+        </h1>
+    </div>
+<% else %>
                 
-            <%end%>   
-        </div>
+<%end%>  
