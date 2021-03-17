@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  root to: 'sessions#welcome'
   resources :venues
   resources :artists
   resources :events
