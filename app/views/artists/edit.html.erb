@@ -1,4 +1,4 @@
-<h1 id="title">Edit Artist:</h1>
+
 <h1 id="title"><%= @artist.name %></h1>
 <hr>
 <div class="box">
@@ -15,8 +15,9 @@
     <h4><%= f.label "Met?" %></h4>
     <%= f.check_box :met %>
   </div>
-<hr>
-  <div>
+</div>
+
+  <div class="box">
     <h3><%= f.label "Create a New Venue:" %></h3>
     <h4><%= f.label "Venue Name:" %></h4>
     <input type="text" id="name" name="venue[name]" />
@@ -27,7 +28,6 @@
     <input type="hidden" id="comfort" name="venue[comfort]" value='0' />
     <input type="hidden" id="prices" name="venue[prices]" value='0' />
   </div>
-</div>
 
 <div class="box">
   <h3>Venue attended:</h3>

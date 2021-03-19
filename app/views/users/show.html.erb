@@ -1,23 +1,15 @@
-<!DOCTYPE html>
-<html>
-
-  <body class="content">
-    <div>
-    <div float="left">
-      <h2>Welcome, <%= @user.username.upcase%></h2>
-      <%= button_to "Log Out", session_path(current_user.id), :method=>:delete, :class=>:destroy, :class => "button" %>
-    </div>
+  
     <div class="menu">
+    <h2>Welcome, <%= @user.username.upcase%></h2>
       <ul>
         <li><a href="/about" class="button">About Event-Horizon</a></li>
-        <li><a><%= button_to "Add An Upcoming Event", {:controller => 'events', :action => 'new'}, {:class => "button"} %></a></li>
-        <li><a><%= button_to "Show Upcoming Events", {:controller => 'events', :action => 'index'}, {:class => "button"} %></a></li>
+        <li><a><%= button_to "Upcoming Events", {:controller => 'events', :action => 'index'}, {:class => "button"} %></a></li>
+        <li><a><%= button_to "Add Upcoming Event", {:controller => 'events', :action => 'new'}, {:class => "button"} %></a></li>
+        <li><a><%= button_to "Log Out", session_path(current_user.id), :method=>:delete, :class=>:destroy, :class => "button" %></a></li>
       </ul>
     </div>
-
-    <div>
+  <div>
       <div class="box">       
-    
         <%= button_to "Artists You've Met", artist_action_path(@user), method: :get, :class => "button" %>
    
         <h2>Saved Artists:</h2> 
@@ -30,9 +22,9 @@
 
           <% end %>
         </ol>     
-    </div>
+      </div>
 
-    <div class="box">     
+      <div class="box">     
 
         <%= button_to "Top Rated Venues", venue_action_path(@user), method: :get, :class => "button" %>
     
@@ -46,10 +38,6 @@
 
           <% end %>
         </ol>    
+      </div>
     </div>
-    </div>
-  </body>
-</html>
-
-
-
+  

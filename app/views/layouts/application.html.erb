@@ -7,11 +7,23 @@
         <%= csrf_meta_tags %>
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css2?family=Monoton&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Marck+Script&display=swap" rel="stylesheet">
     </head>
 
     <body>
+        <div id="page-container">
         <%= render partial: "users/header", locals: {user: @user} %>
-        <%= yield %>
+            <div id="content-wrap">
+                <%= yield %>
+            </div>
+
+        </div>
     </body>
+
+    <footer id="footer">
+        Built and Deployed by: <a href="http://rickbelson.com" target="_blank">Rick J Belson</a> 
+        Linkedin <a href="https://www.linkedin.com/in/rickbelson/" target="_blank">Profile</a>
+    </footer>
 </html>
 

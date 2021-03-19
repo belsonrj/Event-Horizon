@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 
-<hr>
 <h1 id="title"><%= @venue.name %></h1>
+<hr>
 <div class="box">
   <a><%= link_to 'Edit', edit_venue_path(@venue) %></a> |
   <a><%= link_to "Delete", venue_destroy_path(id: @venue.id) %></a>

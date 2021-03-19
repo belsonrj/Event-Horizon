@@ -1,3 +1,5 @@
+<br>
+<hr>
 <div class="box">
 <br>
 <br>
@@ -39,7 +41,8 @@
   <h4><%= f.label "Times Seen" %> <br>
   <input type="text" id="times_seen" name="artist[times_seen]" />
   <h4><%= f.label "Met?" %></h4>
-  <input type="checkbox" id="met" name="artist[met]" />
+  <input type="radio" id="met" value="true" name="artist[met]" />Yes
+  <input type="radio" id="met" value="false" name="artist[met]" checked="true" />No
 </div>
 
 <div class="box">
